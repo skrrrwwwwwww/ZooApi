@@ -1,0 +1,7 @@
+﻿services:
+  zooapi.web:
+    image: zooapi.web
+    build:
+      context: .
+      dockerfile: ZooApi.Web/Dockerfile
+
