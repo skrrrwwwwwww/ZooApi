@@ -1,4 +1,6 @@
-﻿namespace ZooApi.Application.Interfaces;
+﻿using ZooApi.Domain.Entities;
+
+namespace ZooApi.Application.Interfaces;
 
 public interface IAnimalRepository
 {
