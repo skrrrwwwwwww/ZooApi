@@ -1,0 +1,6 @@
+@ZooApi.Web_HostAddress = http://localhost:5011
+
+GET {{ZooApi.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
