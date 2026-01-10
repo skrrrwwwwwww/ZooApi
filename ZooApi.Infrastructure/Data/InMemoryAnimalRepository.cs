@@ -1,4 +1,7 @@
-﻿namespace ZooApi.Infrastructure.Data;
+﻿using ZooApi.Application.Interfaces;
+using ZooApi.Domain.Entities;
+
+namespace ZooApi.Infrastructure.Data;
 
 public class InMemoryAnimalRepository : IAnimalRepository
 {
