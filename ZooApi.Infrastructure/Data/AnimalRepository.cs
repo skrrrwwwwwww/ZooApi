@@ -3,7 +3,7 @@ using ZooApi.Domain.Entities;
 
 namespace ZooApi.Infrastructure.Data;
 
-public class InMemoryAnimalRepository : IAnimalRepository
+public class AnimalRepository : IAnimalRepository
 {
     private static readonly List<Animal> _animals = new();
     private static int _nextId = 1;
