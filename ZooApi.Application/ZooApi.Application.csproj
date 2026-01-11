@@ -10,8 +10,4 @@
       <ProjectReference Include="..\ZooApi.Domain\ZooApi.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
-    </ItemGroup>
-
 </Project>
