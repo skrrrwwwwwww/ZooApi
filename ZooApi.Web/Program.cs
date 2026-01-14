@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
+
 app.UseSerilogRequestLogging(opts =>
 {
     opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
@@ -36,5 +38,4 @@ app.UseSerilogRequestLogging(opts =>
 });
 
 app.MapControllers();
-app.UseHttpsRedirection();
 app.Run();

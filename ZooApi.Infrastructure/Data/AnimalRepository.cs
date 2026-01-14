@@ -1,42 +1,40 @@
 ﻿using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ZooApi.Infrastructure.Data;
 
+
+
 public class AnimalRepository : IAnimalRepository
 {
-    private static readonly List<Animal> _animals = new();
-    private static int _nextId = 1;
-    private readonly object _lock = new();
+    private readonly ZooDbContext _context;
 
-    public async Task<List<Animal>> GetAllAsync()
-        => await Task.FromResult(_animals.ToList());
+    private AnimalRepository(ZooDbContext context) => _context = context;
 
-    public async Task<Animal?> GetByIdAsync(int id)
-        => await Task.FromResult(_animals.FirstOrDefault(a => a.Id == id));
+    public async Task<List<Animal>> GetAllAsync() =>
+        await _context.Animals.ToListAsync();
 
-    public async Task<int> AddAsync(Animal animal)
+    public async Task<Animal> GetByIdAsync(int id) =>
+        await _context.Animals.FindAsync(id);
+
+    public async Task<Animal> AddAsync(Animal animal)
     {
-        lock (_lock)
-        {
-            animal.Id = _nextId++;
-            _animals.Add(animal);
-            return animal.Id;
-        }
+        _context.Animals.Add(animal);
+        await _context.SaveChangesAsync();
+        return animal;
     }
 
     public async Task UpdateAsync(Animal animal)
-        => await Task.CompletedTask;
+    {
+        _context.Entry(animal).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+    }
 
     public async Task DeleteAsync(int id)
     {
-        lock (_lock)
-        {
-            var animal = _animals.FirstOrDefault(a => a.Id == id)
-                         ?? throw new KeyNotFoundException();
-            _animals.Remove(animal);
-        }
-
-        await Task.CompletedTask;
+        var animal = await GetByIdAsync(id) ?? throw new KeyNotFoundException();
+        _context.Animals.Remove(animal);
+        await _context.SaveChangesAsync();
     }
 }
