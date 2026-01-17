@@ -18,7 +18,7 @@ public class AnimalService : IAnimalService
         => await _repository.GetByIdAsync(id);
 
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
-    {
+    {   
         var animal = new Animal(dto.Name, dto.Species);
         await _repository.AddAsync(animal);
         return animal;

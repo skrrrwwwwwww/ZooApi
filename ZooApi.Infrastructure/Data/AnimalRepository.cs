@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ZooApi.Infrastructure.Data;
 
-
-
 public class AnimalRepository : IAnimalRepository
 {
     private readonly ZooDbContext _context;
 
-    private AnimalRepository(ZooDbContext context) => _context = context;
+    public AnimalRepository(ZooDbContext context)
+    {
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+    }
 
     public async Task<List<Animal>> GetAllAsync() =>
         await _context.Animals.ToListAsync();

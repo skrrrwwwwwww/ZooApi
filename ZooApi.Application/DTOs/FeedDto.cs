@@ -2,5 +2,5 @@
 
 public class FeedDto
 {
-    public int FoodAmount { get; set; }
+    public int FoodAmount { get; set; } 
 }

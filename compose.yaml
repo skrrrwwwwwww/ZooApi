@@ -4,4 +4,24 @@
     build:
       context: .
       dockerfile: ZooApi.Web/Dockerfile
-
+    ports:
+      - "8080:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=password123
+    depends_on:
+      - postgres
+      
+  postgres:
+    image: postgres:17
+    container_name: zoo_postgres
+    environment:
+      POSTGRES_DB: zoo_db
+      POSTGRES_USER: zoo_user
+      POSTGRES_PASSWORD: zoo_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      
+volumes:
+  postgres_data:

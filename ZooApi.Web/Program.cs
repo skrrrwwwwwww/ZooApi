@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ZooApi.Application.Interfaces;
 using ZooApi.Application.Services;
 using ZooApi.Infrastructure.Data;
@@ -11,6 +12,11 @@ builder.Host.UseSerilog((context, config) => config
     .WriteTo.File("logs/api-.txt", 
         rollingInterval: RollingInterval.Day,
         retainedFileCountLimit: 7));
+
+builder.Services.AddDbContext<ZooDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
+                      ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123"));
+
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
