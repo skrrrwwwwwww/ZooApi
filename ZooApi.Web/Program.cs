@@ -5,6 +5,7 @@ using ZooApi.Infrastructure;
 using Serilog;
 using ZooApi.Infrastructure;
 using ZooApi.Infrastructure.Repositories;
+using ZooApi.Web.ExceptionHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 if (string.IsNullOrEmpty(connectionString))
 {
-    // Это спасет твои нервы: ты сразу увидишь в консоли, что конфиг не считался
     throw new InvalidOperationException("Строка подключения 'DefaultConnection' не найдена в конфиге!");
 }
 
@@ -33,6 +33,8 @@ builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalService, AnimalService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -44,6 +46,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseExceptionHandler();
 app.UseSerilogRequestLogging(opts =>
 {
     opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>

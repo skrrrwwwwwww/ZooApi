@@ -39,3 +39,24 @@ ORDER BY "MigrationId";
 2026-01-22 18:38:25.221 +03:00 [INF] Успешно возвращено 0 животных
 2026-01-22 18:38:25.223 +03:00 [INF] HTTP GET /api/Animals responded 200 in 37.6778 ms
 2026-01-22 18:38:45.973 +03:00 [INF] Application is shutting down...
+2026-01-22 18:50:59.639 +03:00 [INF] Now listening on: http://localhost:5011
+2026-01-22 18:50:59.703 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-22 18:50:59.705 +03:00 [INF] Hosting environment: Development
+2026-01-22 18:50:59.706 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-01-22 18:51:00.761 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-22 18:51:00.773 +03:00 [INF] HTTP GET / responded 404 in 1.4823 ms
+2026-01-22 18:51:09.505 +03:00 [INF] HTTP GET /api/Animals responded 200 in 1052.6903 ms
+2026-01-22 18:51:37.210 +03:00 [INF] Application is shutting down...
+2026-01-22 19:05:04.022 +03:00 [INF] Now listening on: http://localhost:5011
+2026-01-22 19:05:04.079 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-22 19:05:04.081 +03:00 [INF] Hosting environment: Development
+2026-01-22 19:05:04.082 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-01-22 19:05:05.088 +03:00 [INF] Application is shutting down...
+2026-01-22 19:12:06.001 +03:00 [INF] Now listening on: http://localhost:5011
+2026-01-22 19:12:06.061 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-22 19:12:06.063 +03:00 [INF] Hosting environment: Development
+2026-01-22 19:12:06.064 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-01-22 19:12:08.454 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-22 19:12:08.462 +03:00 [INF] HTTP GET / responded 404 in 0.6234 ms
+2026-01-22 19:12:18.513 +03:00 [INF] HTTP GET /api/Animals responded 200 in 1078.3834 ms
+2026-01-22 19:12:37.286 +03:00 [INF] Application is shutting down...
