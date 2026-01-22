@@ -2,7 +2,7 @@
 
 public class Animal
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; private set; } = string.Empty;
     public string Species { get; private set; } = string.Empty;
     public int Energy { get; private set; }
@@ -36,7 +36,7 @@ public class Animal
 
         int energyCost = intensity * 2;
 
-        if (Energy < energyCost)
+        if (Energy < energyCost) 
             throw new InvalidOperationException("Животное слишком устало для такой активной игры");
 
         Energy -= energyCost;
