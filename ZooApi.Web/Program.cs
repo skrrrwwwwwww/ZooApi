@@ -3,7 +3,7 @@ using ZooApi.Application.Interfaces;
 using ZooApi.Application.Services;
 using ZooApi.Infrastructure;
 using Serilog;
-using ZooApi.Infrastructure;
+using ZooApi.Infrastructure.Extensions;
 using ZooApi.Infrastructure.Repositories;
 using ZooApi.Web.ExceptionHandlers;
 
@@ -27,10 +27,10 @@ builder.Services.AddDbContext<ZooDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
                       ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123"));
 
-
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalService, AnimalService>();
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

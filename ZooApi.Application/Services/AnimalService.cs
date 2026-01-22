@@ -1,4 +1,6 @@
-﻿using ZooApi.Application.DTOs;
+﻿using MassTransit;
+using ZooApi.Application.Common.Contracts;
+using ZooApi.Application.DTOs;
 using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
 
@@ -7,9 +9,13 @@ namespace ZooApi.Application.Services;
 public class AnimalService : IAnimalService
 {
     private readonly IAnimalRepository _repository;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public AnimalService(IAnimalRepository repository) 
-        => _repository = repository;
+    public AnimalService(IAnimalRepository repository, IPublishEndpoint publishEndpoint)
+    {
+        _repository = repository;
+        _publishEndpoint = publishEndpoint;
+    }
 
     public async Task<List<Animal>> GetAllAsync() 
         => await _repository.GetAllAsync();
@@ -20,8 +26,9 @@ public class AnimalService : IAnimalService
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {   
         var animal = new Animal(dto.Name, dto.Species);
-        await _repository.AddAsync(animal);
-        return animal;
+        var created = await _repository.AddAsync(animal);
+        await _publishEndpoint.Publish(new AnimalCreated(created.Id, created.Name, created.Species));
+        return created;
     }
 
     public async Task<Animal> FeedAsync(int id, FeedDto dto)
