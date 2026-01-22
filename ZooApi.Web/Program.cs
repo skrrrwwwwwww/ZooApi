@@ -3,6 +3,7 @@ using ZooApi.Application.Interfaces;
 using ZooApi.Application.Services;
 using ZooApi.Infrastructure.Data;
 using Serilog;
+using ZooApi.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

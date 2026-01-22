@@ -1,8 +1,9 @@
 ﻿using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using ZooApi.Infrastructure.Data;
 
-namespace ZooApi.Infrastructure.Data;
+namespace ZooApi.Infrastructure.Repositories;
 
 public class AnimalRepository : IAnimalRepository
 {
