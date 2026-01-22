@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using ZooApi.Application.Interfaces;
 using ZooApi.Application.Services;
-using ZooApi.Infrastructure.Data;
+using ZooApi.Infrastructure;
 using Serilog;
+using ZooApi.Infrastructure;
 using ZooApi.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,14 @@ builder.Host.UseSerilog((context, config) => config
     .WriteTo.File("logs/api-.txt", 
         rollingInterval: RollingInterval.Day,
         retainedFileCountLimit: 7));
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    // Это спасет твои нервы: ты сразу увидишь в консоли, что конфиг не считался
+    throw new InvalidOperationException("Строка подключения 'DefaultConnection' не найдена в конфиге!");
+}
 
 builder.Services.AddDbContext<ZooDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")

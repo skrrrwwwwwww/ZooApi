@@ -1,18 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ZooApi.Domain.Entities;
 
 namespace ZooApi.Infrastructure.Configurations;
-
-public class AnimalConfiguration
+public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
 {
-    protected void OnModelCreating(ModelBuilder modelBuilder)
+    public void Configure(EntityTypeBuilder<Animal> builder)
     {
-        modelBuilder.Entity<Animal>(entity =>
-        {
-            entity.HasKey(e => e.Id);
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.Species).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.Energy).HasDefaultValue(100);
-        });
+        builder.HasKey(e => e.Id);
+        
+        builder.Property(e => e.Name)
+            .IsRequired()
+            .HasMaxLength(100);
+        
+        builder.Property(e => e.Species)
+            .IsRequired()
+            .HasMaxLength(100);
+        
+        builder.Property(e => e.Energy)
+            .HasDefaultValue(100);
     }
 }

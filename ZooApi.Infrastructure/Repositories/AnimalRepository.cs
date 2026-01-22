@@ -1,7 +1,7 @@
 ﻿using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using ZooApi.Infrastructure.Data;
+using ZooApi.Infrastructure;
 
 namespace ZooApi.Infrastructure.Repositories;
 
@@ -15,11 +15,12 @@ public class AnimalRepository : IAnimalRepository
     }
 
     public async Task<List<Animal>> GetAllAsync() =>
-        await _context.Animals.ToListAsync();
+        await _context.Animals.AsNoTracking().ToListAsync();
 
-    public async Task<Animal> GetByIdAsync(int id) =>
-        await _context.Animals.FindAsync(id);
-
+    public async Task<Animal> GetByIdAsync(int id) => 
+        await _context.Animals
+            .AsNoTracking()
+            .FirstOrDefaultAsync(a => a.Id == id);
     public async Task<Animal> AddAsync(Animal animal)
     {
         _context.Animals.Add(animal);
@@ -35,7 +36,8 @@ public class AnimalRepository : IAnimalRepository
 
     public async Task DeleteAsync(int id)
     {
-        var animal = await GetByIdAsync(id) ?? throw new KeyNotFoundException();
+        var animal = await _context.Animals.FindAsync(id) 
+                     ?? throw new KeyNotFoundException();
         _context.Animals.Remove(animal);
         await _context.SaveChangesAsync();
     }
