@@ -1,0 +1,9 @@
+2026-01-26 16:36:52.850 +03:00 [INF] Application is shutting down...
+2026-01-26 16:36:53.227 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-01-26 16:56:36.838 +03:00 [INF] Now listening on: http://localhost:5011
+2026-01-26 16:56:36.928 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-26 16:56:36.931 +03:00 [INF] Hosting environment: Development
+2026-01-26 16:56:36.935 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-01-26 16:56:37.015 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-01-26 16:56:40.271 +03:00 [INF] Application is shutting down...
+2026-01-26 16:56:40.352 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

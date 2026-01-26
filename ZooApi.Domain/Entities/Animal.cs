@@ -13,7 +13,7 @@ public class Animal
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Имя не может быть пустым", nameof(name));
-            
+                
         if (string.IsNullOrWhiteSpace(species))
             throw new ArgumentException("Вид не может быть пустым", nameof(species));
         
