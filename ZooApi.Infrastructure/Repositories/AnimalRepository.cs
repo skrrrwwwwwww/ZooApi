@@ -1,7 +1,6 @@
 ﻿using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using ZooApi.Infrastructure;
 
 namespace ZooApi.Infrastructure.Repositories;
 
@@ -21,13 +20,6 @@ public class AnimalRepository : IAnimalRepository
         await _context.Animals
             .AsNoTracking()
             .FirstOrDefaultAsync(a => a.Id == id);
-    
-    public async Task<List<Animal>> GetByPage(int pageNumber, int pageSize) =>
-        await _context.Animals
-            .AsNoTracking()
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
     
     public async Task<Animal> AddAsync(Animal animal)
     {
