@@ -7,7 +7,7 @@ public class Animal
     public string Species { get; private set; } = string.Empty;
     public int Energy { get; private set; }
     
-    protected Animal () { } // EF Core
+    protected Animal () { }
 
     public Animal(string name, string species)
     {

@@ -17,9 +17,7 @@ public class AnimalRepository : IAnimalRepository
         await _context.Animals.AsNoTracking().ToListAsync();
 
     public async Task<Animal?> GetByIdAsync(int id) => 
-        await _context.Animals
-            .AsNoTracking()
-            .FirstOrDefaultAsync(a => a.Id == id);
+        await _context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
     
     public async Task<Animal> AddAsync(Animal animal)
     {

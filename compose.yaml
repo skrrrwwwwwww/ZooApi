@@ -7,7 +7,7 @@
     ports:
       - "8080:80"
     environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=password123
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=zoo_pass
     depends_on:
       - postgres
       
@@ -27,8 +27,8 @@
     image: rabbitmq:4.0-management
     container_name: zoo_rabbit
     ports:
-      - "5672:5672"   # Порт для связи (AMQP)
-      - "15672:15672" # Порт для браузера (Management UI)
+      - "5672:5672"   
+      - "15672:15672" 
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
