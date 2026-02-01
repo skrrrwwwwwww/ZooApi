@@ -3,7 +3,6 @@ using ZooApi.Application.Interfaces;
 using ZooApi.Application.Services;
 using ZooApi.Infrastructure;
 using Serilog;
-using ZooApi.Application.DTOs;
 using ZooApi.Application.Profiles;
 using ZooApi.Infrastructure.Extensions;
 using ZooApi.Infrastructure.Repositories;
@@ -29,9 +28,17 @@ builder.Services.AddDbContext<ZooDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
                       ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123"));
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+    options.InstanceName = "ZooApi";
+});
+
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalService, AnimalService>();
+builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(AnimalProfile).Assembly);

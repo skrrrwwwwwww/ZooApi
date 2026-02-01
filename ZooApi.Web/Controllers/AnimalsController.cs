@@ -10,16 +10,15 @@ namespace ZooApi.Web.Controllers;
 [Route("api/[controller]")]
 public class AnimalsController(IAnimalService service, IMapper mapper) : ControllerBase
 {
-    private readonly IMapper _mapper = mapper;
     [HttpGet] 
     public async Task<ActionResult<List<AnimalDto>>> GetAll()
     {
         var animals = await service.GetAllAsync();
-        return Ok(_mapper.Map<List<AnimalDto>>(animals));
+        return Ok(mapper.Map<List<AnimalDto>>(animals));
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Animal>> Get(int id)
+    public async Task<ActionResult<AnimalDto>> Get(int id)
     {
         var animal = await service.GetByIdAsync(id);
         return animal is null ? NotFound() : Ok(mapper.Map<AnimalDto>(animal));
@@ -29,14 +28,16 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     public async Task<ActionResult<AnimalDto>> Create(CreateAnimalDto dto)
     {
         var entity = await service.CreateAsync(dto); 
-        var resultDto = _mapper.Map<AnimalDto>(entity);
+        var resultDto = mapper.Map<AnimalDto>(entity);
         return CreatedAtAction(nameof(Get), new { id = resultDto.Id }, resultDto);
     }
 
     [HttpPut("{id}/feed")]
-    public async Task<ActionResult<Animal>> Feed(int id, FeedDto dto)
+    public async Task<ActionResult<AnimalDto>> Feed(int id, FeedDto dto)
     {
-        var updatedAnimal= Ok(await service.FeedAsync(id, dto));
+        var updatedAnimal = await service.FeedAsync(id, dto);
+        if (updatedAnimal == null) return NotFound();
+        
         return Ok(mapper.Map<AnimalDto>(updatedAnimal));
     }
 
@@ -46,4 +47,4 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
         await service.DeleteAsync(id);
         return NoContent();
     }
-} 
+}
