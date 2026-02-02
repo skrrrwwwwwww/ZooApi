@@ -1,0 +1,11 @@
+2026-02-02 17:40:15.002 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-02 17:40:15.249 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-02 17:40:15.328 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-02 17:40:15.331 +03:00 [INF] Hosting environment: Development
+2026-02-02 17:40:15.332 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-02 17:40:19.680 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 17:40:19.717 +03:00 [INF] HTTP GET / responded 404 in 1.6359 ms
+2026-02-02 17:41:03.001 +03:00 [INF] HTTP POST /api/Animals responded 201 in 1621.5941 ms
+2026-02-02 17:41:08.345 +03:00 [INF] HTTP GET /api/Animals responded 200 in 308.4098 ms
+2026-02-02 17:41:23.941 +03:00 [INF] Application is shutting down...
+2026-02-02 17:41:23.999 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

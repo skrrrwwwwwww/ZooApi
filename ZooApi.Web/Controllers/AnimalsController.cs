@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ZooApi.Application.DTOs;
 using ZooApi.Application.Interfaces;
-using ZooApi.Domain.Entities;
 
 namespace ZooApi.Web.Controllers;
 
