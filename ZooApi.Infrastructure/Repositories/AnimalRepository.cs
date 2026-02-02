@@ -4,40 +4,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ZooApi.Infrastructure.Repositories;
 
-public class AnimalRepository : IAnimalRepository
+public class AnimalRepository(ZooDbContext context) : IAnimalRepository
 {
-    private readonly ZooDbContext _context;
-
-    public AnimalRepository(ZooDbContext context)
-    {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-    }
-
     public async Task<List<Animal>> GetAllAsync() =>
-        await _context.Animals.AsNoTracking().ToListAsync();
+        await context.Animals.AsNoTracking().ToListAsync();
 
     public async Task<Animal?> GetByIdAsync(int id) => 
-        await _context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
+        await context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
     
     public async Task<Animal> AddAsync(Animal animal)
     {
-        _context.Animals.Add(animal);
-        await _context.SaveChangesAsync();
+        context.Animals.Add(animal);
+        await context.SaveChangesAsync();
         return animal;
     }
 
     public async Task UpdateAsync(Animal animal)
     {
-        _context.Entry(animal).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+        context.Entry(animal).State = EntityState.Modified;
+        await context.SaveChangesAsync();
     }
 
     public async Task DeleteAsync(int id)
     {
-        var animal = await _context.Animals.FindAsync(id) 
-                     ?? throw new KeyNotFoundException();
-        _context.Animals.Remove(animal);
-        await _context.SaveChangesAsync();
+        var rows = await context.Animals
+            .Where(a => a.Id == id).ExecuteDeleteAsync();
+        if (rows == 0) throw new KeyNotFoundException();
     }
 }
 
