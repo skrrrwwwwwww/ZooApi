@@ -6,42 +6,35 @@ using ZooApi.Domain.Entities;
 
 namespace ZooApi.Application.Services;
 
-public class AnimalService : IAnimalService
+public class AnimalService(IAnimalRepository repository, 
+                           IPublishEndpoint publishEndpoint) 
+                           : IAnimalService
 {
-    private readonly IAnimalRepository _repository;
-    private readonly IPublishEndpoint _publishEndpoint;
-
-    public AnimalService(IAnimalRepository repository, IPublishEndpoint publishEndpoint)
-    {
-        _repository = repository;
-        _publishEndpoint = publishEndpoint;
-    }
-
     public async Task<List<Animal>> GetAllAsync() 
-        => await _repository.GetAllAsync();
+        => await repository.GetAllAsync();
 
     public async Task<Animal?> GetByIdAsync(int id) 
-        => await _repository.GetByIdAsync(id);
+        => await repository.GetByIdAsync(id);
 
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {   
         var animal = new Animal(dto.Name, dto.Species);
-        var created = await _repository.AddAsync(animal);
-        await _publishEndpoint.Publish(new AnimalCreated(created.Id, created.Name, created.Species));
+        var created = await repository.AddAsync(animal);
+        await publishEndpoint.Publish(new AnimalCreated(created.Id, created.Name, created.Species));
         return created;
     }
 
     public async Task<Animal> FeedAsync(int id, FeedDto dto)
     {
-        var animal = await _repository.GetByIdAsync(id) 
+        var animal = await repository.GetByIdAsync(id) 
                      ?? throw new KeyNotFoundException();
         animal.Feed(dto.FoodAmount);
-        await _repository.UpdateAsync(animal);
+        await repository.UpdateAsync(animal);
         return animal;
     }
 
     public async Task DeleteAsync(int id)
     {
-        await _repository.DeleteAsync(id);
+        await repository.DeleteAsync(id);
     }
 }
