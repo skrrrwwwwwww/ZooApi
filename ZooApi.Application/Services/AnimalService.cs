@@ -33,8 +33,6 @@ public class AnimalService(IAnimalRepository repository,
         return animal;
     }
 
-    public async Task DeleteAsync(int id)
-    {
-        await repository.DeleteAsync(id);
-    }
+    public async Task DeleteAsync(int id) 
+        => await repository.DeleteAsync(id);
 }
