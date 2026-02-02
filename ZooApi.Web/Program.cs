@@ -1,21 +1,11 @@
-using Microsoft.EntityFrameworkCore;
-using ZooApi.Application.Interfaces;
-using ZooApi.Application.Services;
-using ZooApi.Infrastructure;
 using Serilog;
-using ZooApi.Application.Profiles;
+using ZooApi.Application.Extensions;
 using ZooApi.Infrastructure.Extensions;
-using ZooApi.Infrastructure.Repositories;
 using ZooApi.Web.ExceptionHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog((context, config) => config
-    .ReadFrom.Configuration(context.Configuration)
-    .WriteTo.Console()
-    .WriteTo.File("logs/api-.txt", 
-        rollingInterval: RollingInterval.Day,
-        retainedFileCountLimit: 7));
+builder.Host.RegisterSerilog(); 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -23,25 +13,10 @@ if (string.IsNullOrEmpty(connectionString))
 {
     throw new InvalidOperationException("Строка подключения 'DefaultConnection' не найдена в конфиге!");
 }
-
-builder.Services.AddDbContext<ZooDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
-                      ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123"));
-
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "ZooApi";
-});
-
 builder.Services.AddControllers();
-builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
-builder.Services.AddScoped<IAnimalService, AnimalService>();
-builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddAutoMapper(typeof(AnimalProfile).Assembly);
 builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();

@@ -1,14 +1,27 @@
 ﻿    using MassTransit;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using ZooApi.Application.Interfaces;
     using ZooApi.Application.Services;
+    using ZooApi.Infrastructure.Repositories;
 
     namespace ZooApi.Infrastructure.Extensions;
 
-    public static class DepencidyInjection
+    public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("DefaultConnection") 
+                                   ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123";
+            services.AddDbContext<ZooDbContext>(options => options.UseNpgsql(connectionString));
+            
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration.GetConnectionString("Redis");
+                options.InstanceName = "ZooApi";
+            });
+            
             services.AddMassTransit(x =>
             {
                 x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
@@ -30,6 +43,9 @@
                     cfg.ConfigureEndpoints(context); 
                 });
             });
+            
+            services.AddScoped<IAnimalRepository, AnimalRepository>();
+            
             return services;
         }
     }

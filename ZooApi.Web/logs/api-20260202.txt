@@ -23,3 +23,25 @@
 2026-02-02 18:43:02.308 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
 2026-02-02 18:43:12.719 +03:00 [INF] Application is shutting down...
 2026-02-02 18:43:12.790 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-02 19:17:56.872 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-02 19:17:57.208 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-02 19:17:57.210 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-02 19:17:57.211 +03:00 [INF] Hosting environment: Development
+2026-02-02 19:17:57.212 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-02 19:17:57.419 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-02 19:17:58.832 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 19:17:58.844 +03:00 [INF] HTTP GET / responded 404 in 0.7381 ms
+2026-02-02 19:18:13.856 +03:00 [INF] HTTP POST /api/Animals responded 201 in 1695.4963 ms
+2026-02-02 19:18:13.872 +03:00 [INF] Получено новое животное: (ID: 12) Имя: string, порода: string 
+2026-02-02 19:18:13.971 +03:00 [INF] Животное (ID: 12) успешно добавлено в Redis кэш.
+2026-02-02 19:18:15.939 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
+2026-02-02 19:22:36.242 +03:00 [INF] Application is shutting down...
+2026-02-02 19:22:36.324 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-02 20:07:01.851 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-02 20:07:02.140 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-02 20:07:02.141 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-02 20:07:02.142 +03:00 [INF] Hosting environment: Development
+2026-02-02 20:07:02.143 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-02 20:07:02.343 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-02 20:07:54.468 +03:00 [INF] Application is shutting down...
+2026-02-02 20:07:54.565 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
