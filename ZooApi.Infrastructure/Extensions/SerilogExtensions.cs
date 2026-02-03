@@ -15,4 +15,16 @@ public static class SerilogExtensions
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: 7));
     }
+
+    public static void UseCustomLogging(this IApplicationBuilder app)
+    {
+        app.UseSerilogRequestLogging(opts =>
+        {
+            opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+            {
+                diagnosticContext.Set("UserId", httpContext.User?.Identity?.Name ?? "-");
+                diagnosticContext.Set("RequestPath", httpContext.Request.Path);
+            };
+        });
+    }
 }

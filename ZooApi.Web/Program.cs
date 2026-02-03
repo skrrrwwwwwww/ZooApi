@@ -24,14 +24,8 @@ app.UseHttpsRedirection();
 
 app.UseExceptionHandler();
 
-app.UseSerilogRequestLogging(opts =>
-{
-    opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
-    {
-        diagnosticContext.Set("UserId", httpContext.User?.Identity?.Name ?? "-");
-        diagnosticContext.Set("RequestPath", httpContext.Request.Path);
-    };
-});
+app.UseSerilogRequestLogging();
 
 app.MapControllers();
+
 app.Run();
