@@ -1,0 +1,26 @@
+2026-02-04 03:03:09.801 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-04 03:03:10.075 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-04 03:03:10.077 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 03:03:10.078 +03:00 [INF] Hosting environment: Development
+2026-02-04 03:03:10.079 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-04 03:03:10.260 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-04 03:03:10.561 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 03:03:10.737 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 171.5244 ms
+2026-02-04 03:03:10.808 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 11.2255 ms
+2026-02-04 03:03:10.831 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 34.0624 ms
+2026-02-04 03:03:11.421 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 182.6139 ms
+2026-02-04 03:03:18.121 +03:00 [INF] Application is shutting down...
+2026-02-04 03:03:18.191 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-04 03:04:23.195 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-04 03:04:23.441 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-04 03:04:23.444 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 03:04:23.445 +03:00 [INF] Hosting environment: Development
+2026-02-04 03:04:23.445 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-04 03:04:23.568 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-04 03:04:24.090 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 03:04:24.266 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 171.3294 ms
+2026-02-04 03:04:24.323 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 1.2168 ms
+2026-02-04 03:04:24.334 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 23.3398 ms
+2026-02-04 03:04:25.160 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 314.3320 ms
+2026-02-04 03:08:16.173 +03:00 [INF] Application is shutting down...
+2026-02-04 03:08:16.241 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

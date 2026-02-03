@@ -291,3 +291,21 @@ System.ArgumentException: Имя пустое
 2026-02-03 19:02:58.030 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 255.8751 ms
 2026-02-03 19:04:31.852 +03:00 [INF] Application is shutting down...
 2026-02-03 19:04:31.918 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-03 19:09:45.526 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-03 19:09:45.801 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-03 19:09:45.803 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 19:09:45.804 +03:00 [INF] Hosting environment: Development
+2026-02-03 19:09:45.804 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-03 19:09:45.943 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-03 19:09:46.232 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 19:09:46.455 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 202.5987 ms
+2026-02-03 19:09:46.531 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 17.3007 ms
+2026-02-03 19:09:46.555 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 40.0606 ms
+2026-02-03 19:09:47.331 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 264.4376 ms
+2026-02-03 19:10:19.904 +03:00 [INF] HTTP POST /api/Animals responded 201 in 1252.0720 ms
+2026-02-03 19:10:19.913 +03:00 [INF] Получено новое животное: (ID: 17) Имя: sam, порода: pedik 
+2026-02-03 19:10:19.977 +03:00 [INF] Животное (ID: 17) успешно добавлено в Redis кэш.
+2026-02-03 19:10:22.070 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
+2026-02-03 19:14:45.988 +03:00 [INF] Usage Telemetry: {"id":"94490000-8788-8888-5b9d-08de633ea5d0","created":"2026-02-03T19:09:45.4208086\u002B03:00","host":{"framework_version":"9.0.9","mass_transit_version":"8.5.8.0","operating_system_version":"Microsoft Windows NT 10.0.19045.0","time_zone_info":"(UTC\u002B03:00) \u041C\u043E\u0441\u043A\u0432\u0430, \u0421\u0430\u043D\u043A\u0442-\u041F\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","commit_hash":"5e9b7a032a8ee06ff49b62399d67ac55819a0db5"},"bus":[{"created":"2026-02-03T19:09:45.4272600\u002B03:00","configured":"2026-02-03T19:09:45.7093402\u002B03:00","started":"2026-02-03T19:09:45.9400858\u002B03:00","name":"IBus","endpoints":[{"name":"AnimalCreated","type":"RabbitMQ","prefetch_count":16,"consumer_count":1,"message_count":1},{"name":"_bus_","type":"RabbitMQ","prefetch_count":16}]}]}
+2026-02-03 19:18:44.888 +03:00 [INF] Application is shutting down...
+2026-02-03 19:18:44.956 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
