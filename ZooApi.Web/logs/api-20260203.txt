@@ -1,0 +1,35 @@
+2026-02-03 13:26:45.613 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-03 13:26:45.817 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-03 13:26:45.819 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 13:26:45.820 +03:00 [INF] Hosting environment: Development
+2026-02-03 13:26:45.820 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-03 13:26:45.966 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-03 13:26:49.559 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 13:26:49.569 +03:00 [INF] HTTP GET / responded 404 in 0.7796 ms
+2026-02-03 13:27:08.624 +03:00 [INF] HTTP GET /api/Animals responded 200 in 340.3679 ms
+2026-02-03 13:27:14.107 +03:00 [INF] HTTP POST /api/Animals responded 201 in 376.6171 ms
+2026-02-03 13:27:14.130 +03:00 [INF] Получено новое животное: (ID: 9) Имя: string, порода: string 
+2026-02-03 13:27:14.215 +03:00 [INF] Животное (ID: 9) успешно добавлено в Redis кэш.
+2026-02-03 13:27:15.742 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
+2026-02-03 13:27:52.944 +03:00 [INF] Application is shutting down...
+2026-02-03 13:27:53.020 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-03 15:45:10.115 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-03 15:45:10.385 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-03 15:45:10.387 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 15:45:10.388 +03:00 [INF] Hosting environment: Development
+2026-02-03 15:45:10.388 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-03 15:45:10.552 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-03 15:45:13.390 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 15:45:13.399 +03:00 [INF] HTTP GET / responded 404 in 1.0610 ms
+2026-02-03 15:46:29.834 +03:00 [INF] Application is shutting down...
+2026-02-03 15:46:29.901 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-03 15:46:37.255 +03:00 [INF] Configured endpoint AnimalCreated, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-03 15:46:37.514 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-03 15:46:37.518 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 15:46:37.519 +03:00 [INF] Hosting environment: Development
+2026-02-03 15:46:37.521 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-03 15:46:37.691 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-03 15:46:44.031 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 15:46:44.695 +03:00 [INF] HTTP GET /api/Animals responded 200 in 656.1956 ms
+2026-02-03 15:49:32.570 +03:00 [INF] Application is shutting down...
+2026-02-03 15:49:32.640 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

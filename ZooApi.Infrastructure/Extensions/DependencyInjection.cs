@@ -18,7 +18,7 @@
             
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = configuration.GetConnectionString("Redis");
+                options.Configuration = configuration.GetConnectionString("Redis") ?? "redis:6379";
                 options.InstanceName = "ZooApi";
             });
             
@@ -28,16 +28,18 @@
                 
                 /*x.AddEntityFrameworkOutbox<ZooDbContext>(o =>
                 {
-                    o.QueryDelay = TimeSpan.FromSeconds(10);
                     o.UsePostgres();
                     o.UseBusOutbox();
+                    o.QueryDelay = TimeSpan.FromSeconds(1);
                 });*/
+                
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.Host("localhost", 5672,"/", h =>
+                    var rabbitSettings = configuration.GetSection("RabbitMq");
+                    cfg.Host(rabbitSettings["Host"] ?? "localhost", h => // Для IDE тут будет localhost
                     {
-                        h.Username("guest");
-                        h.Password("guest");
+                        h.Username(rabbitSettings["Username"] ?? "guest");
+                        h.Password(rabbitSettings["Password"] ?? "guest");
                     });
                     cfg.UseMessageRetry(r  => r.Interval(3, TimeSpan.FromSeconds(5)));
                     cfg.ConfigureEndpoints(context); 

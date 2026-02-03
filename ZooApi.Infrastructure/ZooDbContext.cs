@@ -15,8 +15,6 @@ public class ZooDbContext : DbContext
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AnimalConfiguration).Assembly);
 
-        modelBuilder.AddInboxStateEntity();
-        modelBuilder.AddOutboxMessageEntity();
-        modelBuilder.AddOutboxStateEntity();
+        modelBuilder.AddTransactionalOutboxEntities();
     }*/
 }

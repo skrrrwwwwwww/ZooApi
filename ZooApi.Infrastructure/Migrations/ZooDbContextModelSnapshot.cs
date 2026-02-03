@@ -42,7 +42,7 @@ namespace ZooApi.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Animals");
+                    b.ToTable("Animals", (string)null);
                 });
 #pragma warning restore 612, 618
         }
