@@ -11,21 +11,15 @@ builder.Host.RegisterSerilog();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi(); 
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 var app = builder.Build();
 
-app.UseSwaggerAlways();
-
 app.UseHttpsRedirection();
-
 app.UseExceptionHandler();
-
 app.UseSerilogRequestLogging();
-
 app.MapControllers();
-
+app.UseScalarAlways();
 app.Run();
