@@ -1,9 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+using Serilog;
 using ZooApi.Application.Extensions;
-using ZooApi.Infrastructure;
 using ZooApi.Infrastructure.Extensions;
 using ZooApi.Web.ExceptionHandlers;
-using ZooApi.Web.MiddlewareExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,21 +20,20 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
-    });
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-app.UseCustomSerilogRequestLogging();
-
 app.UseExceptionHandler();
+app.UseSerilogRequestLogging(opts =>
+{
+    opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+    {
+        diagnosticContext.Set("UserId", httpContext.User?.Identity?.Name ?? "-");
+        diagnosticContext.Set("RequestPath", httpContext.Request.Path);
+    };
+});
 
 app.MapControllers();
-
-app.ApplyMigrations();
-
 app.Run();
