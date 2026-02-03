@@ -2,6 +2,7 @@ using Serilog;
 using ZooApi.Application.Extensions;
 using ZooApi.Infrastructure.Extensions;
 using ZooApi.Web.ExceptionHandlers;
+using ZooApi.Web.MiddlewareExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,15 +18,12 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwaggerAlways();
 
 app.UseHttpsRedirection();
 
 app.UseExceptionHandler();
+
 app.UseSerilogRequestLogging(opts =>
 {
     opts.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>

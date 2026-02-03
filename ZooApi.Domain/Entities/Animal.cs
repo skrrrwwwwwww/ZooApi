@@ -19,10 +19,8 @@ public class Animal(string name, string species)
 
     public void Play(int intensity)
     {
-        int cost = intensity > 0 ? intensity * 2 
-            : throw new ArgumentException("Интенсивность должна быть больше 0", nameof(intensity));
+        int cost = intensity > 0 ? intensity * 2 : throw new ArgumentException("Интенсивность должна быть больше 0", nameof(intensity));
 
-        Energy = Energy >= cost ? Energy - cost
-            : throw new InvalidOperationException("Животное слишком устало для такой активной игры");
+        Energy = Energy >= cost ? Energy - cost : throw new InvalidOperationException("Животное слишком устало для такой активной игры");
     }
 }
