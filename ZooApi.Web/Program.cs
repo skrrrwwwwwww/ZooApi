@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.RegisterSerilog(); 
 
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddMessaging(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi(); 
 builder.Services.AddProblemDetails();
