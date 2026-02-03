@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using ZooApi.Application.DTOs;
 using ZooApi.Application.Interfaces;
