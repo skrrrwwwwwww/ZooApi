@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using ZooApi.Application.Common.Contracts;
 using ZooApi.Application.DTOs;
 using ZooApi.Application.Interfaces;
+using ZooApi.Application.Services;
 
 namespace ZooApi.Web.Controllers;
 

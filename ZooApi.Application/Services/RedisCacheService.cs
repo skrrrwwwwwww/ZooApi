@@ -24,7 +24,7 @@ public class RedisCacheService(IDistributedCache? cache) : IRedisCacheService
         var options = new DistributedCacheEntryOptions() { AbsoluteExpirationRelativeToNow = expiration 
                                                                            ?? TimeSpan.FromMinutes(5) };
         var jsonData = JsonSerializer.Serialize(value, _jsonOptions);
-        cache.SetStringAsync(key, jsonData, options, ct); 
+        await cache.SetStringAsync(key, jsonData, options, ct); 
     }
 
     public async Task RemoveAsync(string key, 

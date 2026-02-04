@@ -1,7 +1,6 @@
-﻿using MassTransit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ZooApi.Domain.Entities;
-using ZooApi.Infrastructure.Configurations;
+
 
 namespace ZooApi.Infrastructure;
 public class ZooDbContext : DbContext

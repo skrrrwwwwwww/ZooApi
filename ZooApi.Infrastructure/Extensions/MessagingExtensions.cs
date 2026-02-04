@@ -12,7 +12,7 @@
             services.AddMassTransit(x =>
             {
                 x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
-                
+            
                 /*x.AddEntityFrameworkOutbox<ZooDbContext>(o =>
                 {
                     o.UsePostgres();
@@ -29,7 +29,7 @@
                         h.Password(rabbitSettings["Password"] ?? "guest");
                     });
                     cfg.UseMessageRetry(r  => r.Interval(3, TimeSpan.FromSeconds(5)));
-                    cfg.ConfigureEndpoints(context); 
+                    cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter("ZooApi", false)); 
                 });
             });
             

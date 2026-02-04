@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ZooApi.Infrastructure.Extensions;
 
-public static class WebApplicationExtensions
+public static class MigrationsExtensions
 {
     public static void ApplyMigrations(this IApplicationBuilder app)
     {

@@ -8,8 +8,10 @@
       - "8080:8080"
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=zoo_pass
+      - RabbitMq__Host=rabbitmq
     depends_on:
       - postgres
+      - rabbitmq
       
   postgres:
     image: postgres:17
