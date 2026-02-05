@@ -13,12 +13,17 @@
             {
                 x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
             
-                /*x.AddEntityFrameworkOutbox<ZooDbContext>(o =>
+                x.AddEntityFrameworkOutbox<ZooDbContext>(o =>
                 {
                     o.UsePostgres();
                     o.UseBusOutbox();
                     o.QueryDelay = TimeSpan.FromSeconds(1);
-                });*/
+                });
+                
+                x.AddConfigureEndpointsCallback((context, name, cfg) =>
+                {
+                    cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
+                });
                 
                 x.UsingRabbitMq((context, cfg) =>
                 {

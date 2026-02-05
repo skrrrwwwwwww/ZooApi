@@ -15,8 +15,13 @@ public class AnimalRepository(ZooDbContext context) : IAnimalRepository
     public async Task<Animal>  AddAsync(Animal animal)
     {
         context.Animals.Add(animal);
-        await context.SaveChangesAsync();
+        // await context.SaveChangesAsync();
         return animal;
+    }
+    
+    public async Task SaveChangesAsync() 
+    {
+        await context.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(Animal animal)

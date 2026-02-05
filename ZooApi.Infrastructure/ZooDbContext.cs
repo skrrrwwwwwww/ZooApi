@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using ZooApi.Domain.Entities;
+using ZooApi.Infrastructure.Configurations;
 
 
 namespace ZooApi.Infrastructure;
@@ -8,12 +10,12 @@ public class ZooDbContext : DbContext
     public DbSet<Animal> Animals { get; set; } = null!;
     public ZooDbContext(DbContextOptions<ZooDbContext> options) : base(options) { }
 
-    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AnimalConfiguration).Assembly);
 
         modelBuilder.AddTransactionalOutboxEntities();
-    }*/
+    }
 }

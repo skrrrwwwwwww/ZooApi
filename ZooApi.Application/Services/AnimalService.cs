@@ -21,6 +21,7 @@ public class AnimalService(IAnimalRepository repository,
         var animal = new Animal(dto.Name, dto.Species);
         var created = await repository.AddAsync(animal);
         await publishEndpoint.Publish(new AnimalCreated(created.Id, created.Name, created.Species));
+        await repository.SaveChangesAsync();
         return created;
     }
 
