@@ -143,3 +143,87 @@ System.ArgumentException: Имя пустое
 2026-02-06 01:29:07.802 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
 2026-02-06 01:30:12.729 +03:00 [INF] Application is shutting down...
 2026-02-06 01:30:12.841 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-06 01:54:48.021 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-06 01:54:48.298 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-06 01:54:48.300 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-06 01:54:48.301 +03:00 [INF] Hosting environment: Development
+2026-02-06 01:54:48.302 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-06 01:54:48.437 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-06 01:54:49.045 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-06 01:54:49.289 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 225.7922 ms
+2026-02-06 01:54:49.358 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 15.2472 ms
+2026-02-06 01:54:49.419 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 19.6396 ms
+2026-02-06 01:54:50.219 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 265.6287 ms
+2026-02-06 01:55:19.802 +03:00 [INF] HTTP PUT /api/Animals/{id}/feed responded 400 in 147.9330 ms
+2026-02-06 01:56:37.929 +03:00 [INF] HTTP PUT /api/Animals/{id}/feed responded 400 in 3.6354 ms
+2026-02-06 01:57:48.247 +03:00 [INF] HTTP GET /api/Animals responded 200 in 49.9764 ms
+2026-02-06 01:58:11.280 +03:00 [INF] HTTP GET /api/Animals responded 200 in 4.6719 ms
+2026-02-06 01:58:49.609 +03:00 [INF] HTTP PUT /api/Animals/3/feed responded 200 in 137.3741 ms
+2026-02-06 01:59:26.721 +03:00 [ERR] HTTP PUT /api/Animals/3/feed responded 500 in 2.9447 ms
+System.ArgumentOutOfRangeException: amount (Parameter 'Еда должна быть 1-100')
+   at ZooApi.Domain.Entities.Animal.Feed(Int32 amount) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Domain\Entities\Animal.cs:line 16
+   at ZooApi.Application.Services.AnimalService.FeedAsync(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 32
+   at ZooApi.Web.Controllers.AnimalsController.Feed(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web\Controllers\AnimalsController.cs:line 40
+   at lambda_method23(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-06 01:59:26.737 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: amount (Parameter 'Еда должна быть 1-100')
+   at ZooApi.Domain.Entities.Animal.Feed(Int32 amount) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Domain\Entities\Animal.cs:line 16
+   at ZooApi.Application.Services.AnimalService.FeedAsync(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 32
+   at ZooApi.Web.Controllers.AnimalsController.Feed(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web\Controllers\AnimalsController.cs:line 40
+   at lambda_method23(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-06 01:59:26.745 +03:00 [ERR] Error: amount (Parameter 'Еда должна быть 1-100')
+System.ArgumentOutOfRangeException: amount (Parameter 'Еда должна быть 1-100')
+   at ZooApi.Domain.Entities.Animal.Feed(Int32 amount) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Domain\Entities\Animal.cs:line 16
+   at ZooApi.Application.Services.AnimalService.FeedAsync(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 32
+   at ZooApi.Web.Controllers.AnimalsController.Feed(Int32 id, FeedDto dto) in C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web\Controllers\AnimalsController.cs:line 40
+   at lambda_method23(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-06 01:59:48.475 +03:00 [INF] Usage Telemetry: {"id":"903f0000-8788-8888-347d-08de65099012","created":"2026-02-06T01:54:47.9413132\u002B03:00","host":{"framework_version":"9.0.9","mass_transit_version":"8.5.8.0","operating_system_version":"Microsoft Windows NT 10.0.19045.0","time_zone_info":"(UTC\u002B03:00) \u041C\u043E\u0441\u043A\u0432\u0430, \u0421\u0430\u043D\u043A\u0442-\u041F\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","commit_hash":"5e9b7a032a8ee06ff49b62399d67ac55819a0db5"},"bus":[{"created":"2026-02-06T01:54:47.9458941\u002B03:00","configured":"2026-02-06T01:54:48.1918186\u002B03:00","started":"2026-02-06T01:54:48.4366037\u002B03:00","name":"IBus","endpoints":[{"name":"zoo-api-animal-created","type":"RabbitMQ","prefetch_count":16,"consumer_count":1,"message_count":1},{"name":"_bus_","type":"RabbitMQ","prefetch_count":16}]}]}
+2026-02-06 02:04:15.412 +03:00 [INF] Application is shutting down...
+2026-02-06 02:04:15.491 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-06 02:04:29.035 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-06 02:04:29.301 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-06 02:04:29.307 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-06 02:04:29.308 +03:00 [INF] Hosting environment: Development
+2026-02-06 02:04:29.309 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\Desktop\Rider\ZooApi\ZooApi.Web
+2026-02-06 02:04:29.461 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-06 02:04:29.913 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-06 02:04:30.434 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 452.5838 ms
+2026-02-06 02:04:30.547 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 12.7320 ms
+2026-02-06 02:04:30.648 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 43.4385 ms
+2026-02-06 02:04:31.547 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 271.9415 ms
+2026-02-06 02:04:47.122 +03:00 [INF] HTTP PUT /api/Animals/3/feed responded 200 in 274.0683 ms
+2026-02-06 02:05:02.242 +03:00 [INF] HTTP GET /api/Animals/3 responded 200 in 10.3846 ms
+2026-02-06 02:05:36.452 +03:00 [INF] Application is shutting down...
+2026-02-06 02:05:36.538 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

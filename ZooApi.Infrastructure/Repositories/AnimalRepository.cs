@@ -12,7 +12,7 @@ public class AnimalRepository(ZooDbContext context) : IAnimalRepository
     public async Task<Animal?> GetByIdAsync(int id) => 
         await context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
     
-    public async Task<Animal>  AddAsync(Animal animal)
+    public async Task<Animal> AddAsync(Animal animal)
     {
         context.Animals.Add(animal);
         // await context.SaveChangesAsync();

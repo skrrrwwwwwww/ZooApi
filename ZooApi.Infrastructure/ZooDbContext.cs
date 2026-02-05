@@ -1,5 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using ZooApi.Application.Interfaces;
 using ZooApi.Domain.Entities;
 using ZooApi.Infrastructure.Configurations;
 
