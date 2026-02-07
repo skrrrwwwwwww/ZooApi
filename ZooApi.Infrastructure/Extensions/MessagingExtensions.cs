@@ -13,14 +13,15 @@
             {
                 x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
             
-                x.AddEntityFrameworkOutbox<ZooDbContext>(o =>
+                x.AddEntityFrameworkOutbox<ZooDbContext>(o => 
                 {
                     o.UsePostgres();
                     o.UseBusOutbox();
                     o.QueryDelay = TimeSpan.FromSeconds(1);
+                    o.DisableInboxCleanupService();
                 });
                 
-                x.AddConfigureEndpointsCallback((context, name, cfg) =>
+                x.AddConfigureEndpointsCallback((context, name, cfg) => 
                 {
                     cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
                 });
@@ -28,7 +29,7 @@
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     var rabbitSettings = configuration.GetSection("RabbitMq");
-                    cfg.Host(rabbitSettings["Host"] ?? "localhost", h => // Для IDE тут будет localhost
+                    cfg.Host(rabbitSettings["Host"] ?? "localhost", h =>
                     {
                         h.Username(rabbitSettings["Username"] ?? "guest");
                         h.Password(rabbitSettings["Password"] ?? "guest");

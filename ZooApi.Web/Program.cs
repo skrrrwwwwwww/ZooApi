@@ -1,5 +1,4 @@
 using ZooApi.Application.Extensions;
-using ZooApi.Application.Services;
 using ZooApi.Infrastructure.Extensions;
 using ZooApi.Web.ExceptionHandlers;
 using ZooApi.Web.MiddlewareExtensions;

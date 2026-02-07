@@ -9,12 +9,7 @@
         {
             services.AddPersistence(configuration);
             services.AddMessaging(configuration);
-            
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = configuration.GetConnectionString("Redis") ?? "redis:6379";
-                options.InstanceName = "ZooApi";
-            });
+            services.AddRedis(configuration);
             
             return services;
         }

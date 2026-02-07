@@ -33,9 +33,7 @@
                 await emailService.SendEmailAsync(recipientEmail, "Уведомление: Новое животное создано", emailBody);
                 logger.LogInformation("Уведомление отправлено на {Email}", recipientEmail);
             }
-            else
-            {
-                logger.LogWarning("Не удалось отправить уведомление, адрес получателя не найден в настройках.");
-            }
+            else logger.LogWarning("Не удалось отправить уведомление, адрес получателя не найден в настройках.");
+            
         }
     }
