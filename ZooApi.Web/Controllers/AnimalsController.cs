@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using ZooApi.Application.Common.Contracts;
 using ZooApi.Application.DTOs;
 using ZooApi.Application.Interfaces;
-using ZooApi.Application.Services;
 
 namespace ZooApi.Web.Controllers;
 
@@ -43,6 +40,15 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
         return Ok(mapper.Map<AnimalDto>(updatedAnimal));
     }
 
+    [HttpPut("{id}/play")]
+    public async Task<ActionResult<AnimalDto>> Play(int id, PlayWithAnimalRequest request)
+    {
+        var updatedAnimal = await service.PlayAsync(id, request.Intensity);
+    
+        return Ok(mapper.Map<AnimalDto>(updatedAnimal));
+    }
+
+    
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {

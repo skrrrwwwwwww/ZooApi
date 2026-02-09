@@ -9,5 +9,6 @@ public interface IAnimalService
     Task<Animal?> GetByIdAsync(int id);
     Task<Animal> CreateAsync(CreateAnimalDto dto);
     Task<Animal> FeedAsync(int id, FeedDto dto);
+    Task<Animal> PlayAsync(int id, int intensity);
     Task DeleteAsync(int id);
 }

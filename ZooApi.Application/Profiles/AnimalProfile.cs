@@ -10,6 +10,5 @@ public class AnimalProfile : Profile
     {
         CreateMap<CreateAnimalDto, Animal>();
         CreateMap<Animal, AnimalDto>();
-        CreateMap<FeedDto, Animal>();
     }
 }

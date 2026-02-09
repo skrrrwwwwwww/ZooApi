@@ -6,13 +6,16 @@ public class Animal(string name, string species)
     
     public string Name { get; private set; } = !string.IsNullOrWhiteSpace(name) 
         ? name 
-        : throw new ArgumentException("Имя не может быть пустым", nameof(name)); // Добавлен nameof
+        : throw new ArgumentException("Имя не может быть пустым", nameof(name)); 
 
     public string Species { get; private set; } = !string.IsNullOrWhiteSpace(species) 
         ? species 
-        : throw new ArgumentException("Вид не может быть пустым", nameof(species)); // Добавлен nameof
+        : throw new ArgumentException("Вид не может быть пустым", nameof(species));
 
     public int Energy { get; private set; } = 100;
+    
+    public int Intensity { get; private set; }
+
     
     protected Animal() : this("Internal", "Internal") { }
 
@@ -30,5 +33,7 @@ public class Animal(string name, string species)
             throw new InvalidOperationException("Животное слишком устало для такой активной игры");
 
         Energy -= cost;
+        
+        Intensity = intensity;
     }
 }

@@ -19,10 +19,22 @@ public class AnimalService(IAnimalRepository repository,
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {   
         var animal = new Animal(dto.Name, dto.Species);
+        
         await repository.AddAsync(animal);
-        await repository.SaveChangesAsync(); 
         await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
         await repository.SaveChangesAsync(); 
+    
+        return animal;
+    }
+    
+    public async Task<Animal> PlayAsync(int id, int intensity)
+    {
+        var animal = await repository.GetByIdAsync(id) 
+                     ?? throw new KeyNotFoundException();
+
+        animal.Play(intensity);
+
+        await repository.UpdateAsync(animal);
         return animal;
     }
 
