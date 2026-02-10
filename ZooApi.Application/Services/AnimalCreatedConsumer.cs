@@ -34,8 +34,5 @@
                 logger.LogInformation("Уведомление отправлено на {Email}", recipientEmail);
             }
             else logger.LogWarning("Не удалось отправить уведомление, адрес получателя не найден в настройках.");
-            
-            
-            
         }
     }
