@@ -17,8 +17,8 @@ public static class AnimalEndpoints
         });
 
         group.MapGet("/id", async (Guid id, IAnimalService service, IMapper mapper) =>
-            await service.GetByIdAsync(id) is { } animal
-                ? Results.Ok(mapper.Map<AnimalDto>(animal))
+            await service.GetByIdAsync(id) is { } animal 
+                ? Results.Ok(mapper.Map<AnimalDto>(animal)) 
                 : Results.NotFound());
         
         group.MapPost("/", async (CreateAnimalDto dto, IAnimalService service, IMapper mapper) =>
@@ -29,7 +29,7 @@ public static class AnimalEndpoints
         });
         
         group.MapPut("/{id}/feed", async (Guid id, FeedDto dto, IAnimalService service, IMapper mapper) =>
-            await service.FeedAsync(id, dto) is { } updated
+            await service.FeedAsync(id, dto) is { } updated 
                 ? Results.Ok(mapper.Map<AnimalDto>(updated))
                 : Results.NotFound());
         
