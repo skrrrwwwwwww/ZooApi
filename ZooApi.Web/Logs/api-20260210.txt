@@ -1098,3 +1098,5 @@ MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:567
 2026-02-10 07:28:14.838 +03:00 [INF] Получено новое животное: (ID: 019c45ce-9e01-7277-a237-254c39343c78) Имя: dasdas, порода: dsadas 
 2026-02-10 07:28:14.842 +03:00 [INF] Животное (ID: "019c45ce-9e01-7277-a237-254c39343c78") успешно добавлено в Redis кэш.
 2026-02-10 07:28:18.233 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
+2026-02-10 07:30:47.696 +03:00 [INF] Application is shutting down...
+2026-02-10 07:30:48.008 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"

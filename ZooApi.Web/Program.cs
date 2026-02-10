@@ -21,7 +21,6 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseExceptionHandler();
 app.UseCustomLogging();
-/*app.MapControllers();*/
 app.MapAnimals();
 app.UseScalarAlways();
 app.Run();
