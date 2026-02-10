@@ -1,5 +1,6 @@
 using ZooApi.Application.Extensions;
 using ZooApi.Infrastructure.Extensions;
+using ZooApi.Web.Endpoints;
 using ZooApi.Web.ExceptionHandlers;
 using ZooApi.Web.MiddlewareExtensions;
 
@@ -20,6 +21,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseExceptionHandler();
 app.UseCustomLogging();
-app.MapControllers();
+/*app.MapControllers();*/
+app.MapAnimals();
 app.UseScalarAlways();
 app.Run();
