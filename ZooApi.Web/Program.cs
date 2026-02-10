@@ -3,24 +3,14 @@ using ZooApi.Infrastructure.Extensions;
 using ZooApi.Web.Endpoints;
 using ZooApi.Web.ExceptionHandlers;
 using ZooApi.Web.MiddlewareExtensions;
+using ZooApi.Web.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.RegisterSerilog(); 
-
-builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddControllers();
-builder.Services.AddOpenApi(); 
-builder.Services.AddProblemDetails(); 
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-
+builder.AddWebServices();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseExceptionHandler();
-app.UseCustomLogging();
-app.MapAnimals();
-app.UseScalarAlways();
+app.UseApiPipeline();
+
 app.Run();

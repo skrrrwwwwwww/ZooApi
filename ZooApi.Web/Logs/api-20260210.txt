@@ -1100,3 +1100,16 @@ MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:567
 2026-02-10 07:28:18.233 +03:00 [INF] Уведомление отправлено на shikarevivan2004@gmail.com
 2026-02-10 07:30:47.696 +03:00 [INF] Application is shutting down...
 2026-02-10 07:30:48.008 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-10 07:48:35.023 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-10 07:48:35.336 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-10 07:48:35.339 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-10 07:48:35.341 +03:00 [INF] Hosting environment: Development
+2026-02-10 07:48:35.343 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-10 07:48:35.464 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-10 07:48:36.063 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-10 07:48:36.230 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 159.9610 ms
+2026-02-10 07:48:36.258 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 7.7832 ms
+2026-02-10 07:48:36.272 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 21.8566 ms
+2026-02-10 07:48:36.648 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 141.1597 ms
+2026-02-10 07:48:43.804 +03:00 [INF] Application is shutting down...
+2026-02-10 07:48:43.958 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
