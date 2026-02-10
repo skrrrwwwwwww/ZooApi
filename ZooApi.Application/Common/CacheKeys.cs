@@ -2,5 +2,5 @@
 
 public class CacheKeys
 {
-    public static string GetAnimalKey(int AnimalCreated) => $"Animal:{AnimalCreated}";
+    public static string GetAnimalKey(Guid AnimalCreated) => $"Animal:{AnimalCreated}";
 }

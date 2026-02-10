@@ -2,7 +2,7 @@
 
 public class Animal(string name, string species)
 {
-    public int Id { get; init; }
+    public Guid Id { get; init; }
     
     public string Name { get; private set; } = !string.IsNullOrWhiteSpace(name) 
         ? name 

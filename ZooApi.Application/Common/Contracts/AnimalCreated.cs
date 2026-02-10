@@ -1,3 +1,3 @@
 ﻿namespace ZooApi.Application.Common.Contracts;
 
-public record AnimalCreated(int Id, string Name, string Species);
+public record AnimalCreated(Guid Id, string Name, string Species);
