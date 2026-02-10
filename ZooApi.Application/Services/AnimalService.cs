@@ -13,21 +13,22 @@ public class AnimalService(IAnimalRepository repository,
     public async Task<List<Animal>> GetAllAsync() 
         => await repository.GetAllAsync();
 
-    public async Task<Animal?> GetByIdAsync(int id) 
+    public async Task<Animal?> GetByIdAsync(Guid id) 
         => await repository.GetByIdAsync(id);
 
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {   
         var animal = new Animal(dto.Name, dto.Species);
-        
         await repository.AddAsync(animal);
+        
         await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
-        await repository.SaveChangesAsync(); 
     
+        await repository.SaveChangesAsync(); 
+
         return animal;
     }
     
-    public async Task<Animal> PlayAsync(int id, int intensity)
+    public async Task<Animal> PlayAsync(Guid id, int intensity)
     {
         var animal = await repository.GetByIdAsync(id) 
                      ?? throw new KeyNotFoundException();
@@ -38,7 +39,7 @@ public class AnimalService(IAnimalRepository repository,
         return animal;
     }
 
-    public async Task<Animal> FeedAsync(int id, FeedDto dto)
+    public async Task<Animal> FeedAsync(Guid id, FeedDto dto)
     {
         var animal = await repository.GetByIdAsync(id) 
                      ?? throw new KeyNotFoundException();
@@ -47,6 +48,6 @@ public class AnimalService(IAnimalRepository repository,
         return animal;
     }
 
-    public async Task DeleteAsync(int id) 
+    public async Task DeleteAsync(Guid id) 
         => await repository.DeleteAsync(id);
 }

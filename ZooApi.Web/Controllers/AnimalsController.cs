@@ -17,7 +17,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<AnimalDto>> Get(int id)
+    public async Task<ActionResult<AnimalDto>> Get(Guid id)
     {
         var animal = await service.GetByIdAsync(id);
         return animal is null ? NotFound() : Ok(mapper.Map<AnimalDto>(animal));
@@ -32,7 +32,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     }
 
     [HttpPut("{id}/feed")]
-    public async Task<ActionResult<AnimalDto>> Feed(int id, FeedDto dto)
+    public async Task<ActionResult<AnimalDto>> Feed(Guid id, FeedDto dto)
     {
         var updatedAnimal = await service.FeedAsync(id, dto);
         if (updatedAnimal == null) return NotFound();
@@ -41,7 +41,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     }
 
     [HttpPut("{id}/play")]
-    public async Task<ActionResult<AnimalDto>> Play(int id, PlayDto dto)
+    public async Task<ActionResult<AnimalDto>> Play(Guid id, PlayWithAnimalRequest request)
     {
         var updatedAnimal = await service.PlayAsync(id, dto.Intensity);
     
@@ -50,7 +50,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
 
     
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         await service.DeleteAsync(id);
         return NoContent();

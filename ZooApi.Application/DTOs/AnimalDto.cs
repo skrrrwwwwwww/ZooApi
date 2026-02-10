@@ -1,6 +1,6 @@
 ﻿namespace ZooApi.Application.DTOs;
 
-public record AnimalDto(int Id, 
+public record AnimalDto(Guid Id, 
                         string Name, 
                         string Species, 
                         int Energy,

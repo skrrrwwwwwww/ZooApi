@@ -14,6 +14,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddProblemDetails(); 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();

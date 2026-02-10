@@ -17,14 +17,14 @@
                 {
                     o.UsePostgres();
                     o.UseBusOutbox();
-                    o.QueryDelay = TimeSpan.FromSeconds(1);
+                    o.QueryDelay = TimeSpan.FromSeconds(10);
                     o.DisableInboxCleanupService();
                 });
                 
-                x.AddConfigureEndpointsCallback((context, name, cfg) => 
+                /*x.AddConfigureEndpointsCallback((context, name, cfg) => 
                 {
                     cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
-                });
+                });*/
                 
                 x.UsingRabbitMq((context, cfg) =>
                 {
