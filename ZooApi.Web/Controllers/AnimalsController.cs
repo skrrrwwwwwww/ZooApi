@@ -43,7 +43,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     [HttpPut("{id}/play")]
     public async Task<ActionResult<AnimalDto>> Play(Guid id, PlayWithAnimalRequest request)
     {
-        var updatedAnimal = await service.PlayAsync(id, request.Intensity);
+        var updatedAnimal = await service.PlayAsync(id, dto.Intensity);
     
         return Ok(mapper.Map<AnimalDto>(updatedAnimal));
     }
