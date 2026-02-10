@@ -19,11 +19,14 @@ public class AnimalService(IAnimalRepository repository,
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {   
         var animal = new Animal(dto.Name, dto.Species);
-        
         await repository.AddAsync(animal);
-        await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
+        
         await repository.SaveChangesAsync(); 
+        
+        await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
     
+        await repository.SaveChangesAsync(); 
+
         return animal;
     }
     
