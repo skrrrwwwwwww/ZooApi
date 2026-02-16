@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ZooApi.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ZooApi.Infrastructure.Configurations;
 public class AnimalConfiguration : IEntityTypeConfiguration<Animal>

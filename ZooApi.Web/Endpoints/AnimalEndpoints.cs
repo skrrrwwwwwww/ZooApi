@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using ZooApi.Application.DTOs;
-using ZooApi.Application.Interfaces;
-
-namespace ZooApi.Web.Endpoints;
+﻿namespace ZooApi.Web.Endpoints;
 
 public static class AnimalEndpoints
 {
@@ -44,6 +40,5 @@ public static class AnimalEndpoints
             await service.DeleteAsync(id);
             return Results.NoContent();
         });
-
     }
 }

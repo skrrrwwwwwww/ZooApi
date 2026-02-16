@@ -1,11 +1,4 @@
-﻿using MassTransit;
-using Microsoft.EntityFrameworkCore;
-using ZooApi.Application.Interfaces;
-using ZooApi.Domain.Entities;
-using ZooApi.Infrastructure.Configurations;
-
-
-namespace ZooApi.Infrastructure;
+﻿namespace ZooApi.Infrastructure;
 public class ZooDbContext : DbContext
 {
     public DbSet<Animal> Animals { get; set; } = null!;

@@ -1,8 +1,4 @@
-﻿using System.Text.Json;
-using Microsoft.Extensions.Caching.Distributed;
-using ZooApi.Application.Interfaces;
-
-namespace ZooApi.Application.Services;
+﻿namespace ZooApi.Application.Services;
 
 public class RedisCacheService(IDistributedCache? cache) : IRedisCacheService
 {
