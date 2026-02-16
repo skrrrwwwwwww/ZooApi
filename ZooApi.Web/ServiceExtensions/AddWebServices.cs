@@ -1,8 +1,4 @@
-﻿using ZooApi.Application.Extensions;
-using ZooApi.Infrastructure.Extensions;
-using ZooApi.Web.ExceptionHandlers;
-
-namespace ZooApi.Web.ServiceExtensions;
+﻿namespace ZooApi.Web.ServiceExtensions;
 
 public static class ServiceExtensions
 {

@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using ZooApi.Application.DTOs;
-using ZooApi.Domain.Entities;
-
-namespace ZooApi.Application.Profiles;
+﻿namespace ZooApi.Application.Profiles;
 
 public class AnimalProfile : Profile
 {

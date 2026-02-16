@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using MimeKit;
-using MailKit.Net.Smtp;
-using MailKit.Security;
-using ZooApi.Application.Interfaces;
-
-namespace ZooApi.Application.Services;
+﻿namespace ZooApi.Application.Services;
 
 public class EmailService(IConfiguration configuration) : IEmailService
 {

@@ -1,6 +1,4 @@
-﻿using Scalar.AspNetCore;
-
-namespace ZooApi.Web.MiddlewareExtensions;
+﻿namespace ZooApi.Web.MiddlewareExtensions;
 
 public static class ScalarMiddlewareExtensions
 {

@@ -1,10 +1,4 @@
-﻿using MassTransit;
-using ZooApi.Application.Common.Contracts;
-using ZooApi.Application.DTOs;
-using ZooApi.Application.Interfaces;
-using ZooApi.Domain.Entities;
-
-namespace ZooApi.Application.Services;
+﻿namespace ZooApi.Application.Services;
 
 public class AnimalService(IAnimalRepository repository, 
                            IPublishEndpoint publishEndpoint) 

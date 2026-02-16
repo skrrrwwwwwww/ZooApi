@@ -1,5 +1,4 @@
-﻿    using MassTransit;
-    using Microsoft.Extensions.Configuration;
+﻿    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using ZooApi.Application.Services;
     
@@ -20,11 +19,6 @@
                     o.QueryDelay = TimeSpan.FromSeconds(10);
                     o.DisableInboxCleanupService();
                 });
-                
-                /*x.AddConfigureEndpointsCallback((context, name, cfg) => 
-                {
-                    cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
-                });*/
                 
                 x.UsingRabbitMq((context, cfg) =>
                 {

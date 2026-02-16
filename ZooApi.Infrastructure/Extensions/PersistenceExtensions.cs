@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ZooApi.Application.Interfaces;
 using ZooApi.Infrastructure.Repositories;
 
 namespace ZooApi.Infrastructure.Extensions;

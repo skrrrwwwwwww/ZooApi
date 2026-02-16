@@ -1,0 +1,17 @@
+﻿global using AutoMapper;
+global using ZooApi.Application.DTOs;
+global using ZooApi.Domain.Entities;
+global using MassTransit;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using ZooApi.Application.Common;
+global using ZooApi.Application.Common.Contracts;
+global using ZooApi.Application.Interfaces;
+global using MimeKit;
+global using MailKit.Net.Smtp;
+global using MailKit.Security;
+global using System.Text.Json;
+global using Microsoft.Extensions.Caching.Distributed;
+global using Microsoft.Extensions.DependencyInjection;
+global using ZooApi.Application.Profiles;
+global using ZooApi.Application.Services;

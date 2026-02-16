@@ -1,7 +1,4 @@
-﻿using ZooApi.Application.DTOs;
-using ZooApi.Domain.Entities;
-
-namespace ZooApi.Application.Interfaces;
+﻿namespace ZooApi.Application.Interfaces;
 
 public interface IAnimalService
 {
