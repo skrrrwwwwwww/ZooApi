@@ -9,9 +9,15 @@
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=zoo_pass
       - RabbitMq__Host=rabbitmq
+      - ConnectionStrings__Redis=redis:6379
+      - MailSettings__Host=mailhog
+      - MailSettings__Port=1025
+      - MailSettings__Username=test@test.com
+      - MailSettings__Password=
     depends_on:
       - postgres
       - rabbitmq
+      - redis
       
   postgres:
     image: postgres:17
@@ -26,7 +32,7 @@
       - postgres_data:/var/lib/postgresql/data
     
   rabbitmq:
-    image: rabbitmq:4.0-management
+    image: rabbitmq:4-management
     container_name: zoo_rabbit
     ports:
       - "5672:5672"   
@@ -37,8 +43,16 @@
       
   redis:
     image: redis:alpine
+    container_name: zoo_redis
     ports:
       - "6379:6379"
   
+  mailhog:
+    image: mailhog/mailhog
+    container_name: zoo_mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025" 
+
 volumes:
   postgres_data:

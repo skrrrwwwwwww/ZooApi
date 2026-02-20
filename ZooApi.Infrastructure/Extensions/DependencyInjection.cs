@@ -1,16 +1,13 @@
-﻿    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
+﻿namespace ZooApi.Infrastructure.Extensions;
 
-    namespace ZooApi.Infrastructure.Extensions;
-
-    public static class DependencyInjection
+public static class DependencyInjection
+{
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddPersistence(configuration);
-            services.AddMessaging(configuration);
-            services.AddRedis(configuration);
-            
-            return services;
-        }
+        services.AddPersistence(configuration);
+        services.AddMessaging(configuration);
+        services.AddRedis(configuration);
+        
+        return services;
     }
+}

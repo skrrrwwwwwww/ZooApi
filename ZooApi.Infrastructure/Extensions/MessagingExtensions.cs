@@ -1,44 +1,39 @@
-﻿    using MassTransit;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using ZooApi.Application.Services;
-    
-    namespace ZooApi.Infrastructure.Extensions;
+﻿using ZooApi.Infrastructure.Messaging;
 
-    public static class MessagingExtensions
+namespace ZooApi.Infrastructure.Extensions;
+
+public static class MessagingExtensions
+{
+    public static IServiceCollection AddMessaging(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddMessaging(this IServiceCollection services, IConfiguration configuration)
+        services.AddSingleton<LogReceiveObserver>();
+        services.AddQuartz(q => { q.UseMicrosoftDependencyInjectionJobFactory(); });
+        services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+        services.AddMassTransit(x =>
         {
-            services.AddMassTransit(x =>
+            x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
+            x.AddEntityFrameworkOutbox<ZooDbContext>(o => 
             {
-                x.AddConsumers(typeof(AnimalCreatedConsumer).Assembly);
-            
-                x.AddEntityFrameworkOutbox<ZooDbContext>(o => 
-                {
-                    o.UsePostgres();
-                    o.UseBusOutbox();
-                    o.QueryDelay = TimeSpan.FromSeconds(10);
-                    o.DisableInboxCleanupService();
-                });
-                
-                /*x.AddConfigureEndpointsCallback((context, name, cfg) => 
-                {
-                    cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
-                });*/
-                
-                x.UsingRabbitMq((context, cfg) =>
-                {
-                    var rabbitSettings = configuration.GetSection("RabbitMq");
-                    cfg.Host(rabbitSettings["Host"] ?? "localhost", h =>
-                    {
-                        h.Username(rabbitSettings["Username"] ?? "guest");
-                        h.Password(rabbitSettings["Password"] ?? "guest");
-                    });
-                    cfg.UseMessageRetry(r  => r.Interval(3, TimeSpan.FromSeconds(5)));
-                    cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter("ZooApi", false)); 
-                });
+                o.UsePostgres();
+                o.UseBusOutbox();
+                o.QueryDelay = TimeSpan.FromSeconds(1);
             });
             
-            return services;
-        }
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.ConnectReceiveObserver(context.GetRequiredService<LogReceiveObserver>());
+                
+                var rabbitSettings = configuration.GetSection("RabbitMq");
+                cfg.Host(rabbitSettings["Host"] ?? "localhost", h =>
+                {
+                    h.Username(rabbitSettings["Username"] ?? "guest");
+                    h.Password(rabbitSettings["Password"] ?? "guest");
+                });
+                cfg.UseMessageRetry(r  => r.Exponential(5, TimeSpan.FromSeconds(1), TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(5)));
+                cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter("ZooApi", false)); 
+            });
+        });
+        
+        return services;
     }
+}

@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  zooapi.web:
+    build:
+      context: "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi"
+      dockerfile: "ZooApi.Web/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net10.0/ZooApi.Web.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "zooapi.web:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi\\ZooApi.Web:/app:rw"
+    - "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi:/src:rw"
+    - "C:\\Users\\skrrrwwwwwww\\AppData\\Roaming\\Microsoft\\UserSecrets:/home/app/.microsoft/usersecrets"
+    - "C:\\Users\\skrrrwwwwwww\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"

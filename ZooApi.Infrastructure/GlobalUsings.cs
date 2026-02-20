@@ -1,0 +1,12 @@
+﻿global using MassTransit;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Quartz;
+global using Serilog;
+global using ZooApi.Application.Interfaces;
+global using ZooApi.Application.Services;
+global using ZooApi.Domain.Entities;
+global using ZooApi.Infrastructure.Persistence;

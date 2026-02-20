@@ -1,0 +1,236 @@
+2026-02-19 22:50:29.582 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-19 22:50:29.781 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-19 22:50:29.785 +03:00 [INF] Quartz Scheduler created
+2026-02-19 22:50:29.787 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-19 22:50:29.789 +03:00 [INF] RAMJobStore initialized.
+2026-02-19 22:50:29.790 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-19 22:50:29.792 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-19 22:50:29.793 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-19 22:50:29.804 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-19 22:50:29.865 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-19 22:50:29.867 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 22:50:29.868 +03:00 [INF] Hosting environment: Development
+2026-02-19 22:50:29.869 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-19 22:50:29.874 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-19 22:50:30.278 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-19 22:50:30.335 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 46.9005 ms
+2026-02-19 22:50:30.391 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 4.3855 ms
+2026-02-19 22:50:30.396 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 0.2603 ms
+2026-02-19 22:50:30.750 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 215.9295 ms
+2026-02-19 22:54:12.509 +03:00 [INF] Application is shutting down...
+2026-02-19 22:54:12.520 +03:00 [WRN] Failed to stop bus: "rabbitmq://localhost/HOMEPC_ZooApiWeb_bus_wodyyyretnreoq8ebdxg9hbnrd?temporary=true" (Not Started)
+2026-02-19 22:54:12.525 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-19 22:54:12.527 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-19 22:54:12.533 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-19 23:00:24.647 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-19 23:00:24.847 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-19 23:00:24.848 +03:00 [INF] Quartz Scheduler created
+2026-02-19 23:00:24.849 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-19 23:00:24.851 +03:00 [INF] RAMJobStore initialized.
+2026-02-19 23:00:24.852 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-19 23:00:24.853 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-19 23:00:24.854 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-19 23:00:24.870 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-19 23:00:24.925 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-19 23:00:24.927 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 23:00:24.928 +03:00 [INF] Hosting environment: Development
+2026-02-19 23:00:24.929 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-19 23:00:24.934 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-19 23:00:25.340 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-19 23:00:25.397 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 47.9172 ms
+2026-02-19 23:00:25.454 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 3.0913 ms
+2026-02-19 23:00:25.454 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 3.0912 ms
+2026-02-19 23:00:25.814 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 243.1045 ms
+2026-02-19 23:00:37.668 +03:00 [ERR] HTTP POST /api/animals responded 500 in 938.4171 ms
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-19 23:00:37.707 +03:00 [ERR] Error: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-19 23:00:50.664 +03:00 [ERR] HTTP POST /api/animals responded 500 in 70.3120 ms
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-19 23:00:50.671 +03:00 [ERR] Error: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-19 23:00:54.651 +03:00 [INF] Application is shutting down...
+2026-02-19 23:00:54.666 +03:00 [WRN] Failed to stop bus: "rabbitmq://localhost/HOMEPC_ZooApiWeb_bus_mtyyyyretnreoapwbdxg9hcfbo?temporary=true" (Not Started)
+2026-02-19 23:00:54.671 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-19 23:00:54.673 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-19 23:00:54.680 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-19 23:00:57.230 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-19 23:00:57.420 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-19 23:00:57.421 +03:00 [INF] Quartz Scheduler created
+2026-02-19 23:00:57.423 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-19 23:00:57.424 +03:00 [INF] RAMJobStore initialized.
+2026-02-19 23:00:57.426 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-19 23:00:57.427 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-19 23:00:57.428 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-19 23:00:57.441 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-19 23:00:57.518 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-19 23:00:57.520 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 23:00:57.521 +03:00 [INF] Hosting environment: Development
+2026-02-19 23:00:57.522 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-19 23:00:57.526 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-19 23:00:58.149 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-19 23:00:58.210 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 51.0015 ms
+2026-02-19 23:00:58.265 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 3.2924 ms
+2026-02-19 23:00:58.265 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 3.2828 ms
+2026-02-19 23:00:58.605 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 213.6656 ms
+2026-02-19 23:01:05.798 +03:00 [ERR] HTTP POST /api/animals responded 500 in 952.2798 ms
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-19 23:01:05.823 +03:00 [ERR] Error: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-19 23:01:08.836 +03:00 [INF] Application is shutting down...
+2026-02-19 23:01:08.852 +03:00 [WRN] Failed to stop bus: "rabbitmq://localhost/HOMEPC_ZooApiWeb_bus_mbkoyyretnreo1d6bdxg9hcar6?temporary=true" (Not Started)
+2026-02-19 23:01:08.857 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-19 23:01:08.859 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-19 23:01:08.865 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-19 23:01:54.240 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-19 23:01:54.419 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-19 23:01:54.421 +03:00 [INF] Quartz Scheduler created
+2026-02-19 23:01:54.422 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-19 23:01:54.424 +03:00 [INF] RAMJobStore initialized.
+2026-02-19 23:01:54.425 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-19 23:01:54.427 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-19 23:01:54.428 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-19 23:01:54.438 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-19 23:01:54.494 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-19 23:01:54.496 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 23:01:54.497 +03:00 [INF] Hosting environment: Development
+2026-02-19 23:01:54.498 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-19 23:01:54.502 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-19 23:01:55.065 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-19 23:01:55.119 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 46.1285 ms
+2026-02-19 23:01:55.171 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 5.9230 ms
+2026-02-19 23:01:55.173 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 0.3381 ms
+2026-02-19 23:01:55.652 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 282.6036 ms
+2026-02-19 23:02:02.459 +03:00 [ERR] HTTP POST /api/animals responded 500 in 813.0126 ms
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-19 23:02:02.483 +03:00 [ERR] Error: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+System.TypeLoadException: Could not load type 'RabbitMQ.Client.IContentHeader' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at MassTransit.RabbitMqTransport.RabbitMqSendTransportContext.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken)
+   at MassTransit.Transports.SendTransport`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendTransport.cs:line 41
+   at MassTransit.Transports.SendEndpoint.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/SendEndpoint.cs:line 56
+   at MassTransit.Transports.CachedSendEndpoint`1.CreateSendContext[T](T message, IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/CachedSendEndpoint.cs:line 44
+   at MassTransit.Middleware.Outbox.OutboxSendEndpoint.Send[T](T message, CancellationToken cancellationToken) in /_/src/MassTransit/Middleware/Outbox/OutboxSendEndpoint.cs:line 49
+   at ZooApi.Application.Services.AnimalService.CreateAsync(CreateAnimalDto dto) in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Application\Services\AnimalService.cs:line 19
+   at ZooApi.Web.Endpoints.AnimalEndpoints.<>c.<<MapAnimals>b__0_2>d.MoveNext() in C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web\Endpoints\AnimalEndpoints.cs:line 24
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-02-19 23:03:41.507 +03:00 [INF] Application is shutting down...
+2026-02-19 23:03:41.521 +03:00 [WRN] Failed to stop bus: "rabbitmq://localhost/HOMEPC_ZooApiWeb_bus_rtoyyyretnreomz5bdxg9hp4r4?temporary=true" (Not Started)
+2026-02-19 23:03:41.527 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-19 23:03:41.530 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-19 23:03:41.536 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.

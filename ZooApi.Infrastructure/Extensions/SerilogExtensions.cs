@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Serilog;
-
-namespace ZooApi.Infrastructure.Extensions;
+﻿namespace ZooApi.Infrastructure.Extensions;
 
 public static class SerilogExtensions
 {
@@ -11,7 +8,7 @@ public static class SerilogExtensions
             .ReadFrom.Configuration(context.Configuration)
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .WriteTo.File("Logs/api-.txt", 
+            .WriteTo.File("../logs/api-.txt", 
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: 7));
     }

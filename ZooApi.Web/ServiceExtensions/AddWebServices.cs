@@ -1,8 +1,4 @@
-﻿using ZooApi.Application.Extensions;
-using ZooApi.Infrastructure.Extensions;
-using ZooApi.Web.ExceptionHandlers;
-
-namespace ZooApi.Web.ServiceExtensions;
+﻿namespace ZooApi.Web.ServiceExtensions;
 
 public static class ServiceExtensions
 {
@@ -12,7 +8,6 @@ public static class ServiceExtensions
         
         builder.Services.AddApplication();
         builder.Services.AddInfrastructure(builder.Configuration);
-
         builder.Services.AddOpenApi(); 
         builder.Services.AddProblemDetails();
         builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

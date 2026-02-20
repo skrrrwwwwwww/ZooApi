@@ -1,6 +1,23 @@
 @ZooApi.Web_HostAddress = http://localhost:5011
 
-GET {{ZooApi.Web_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Создать новое животное
+POST {{ZooApi.Web_HostAddress}}/api/animals
+Content-Type: application/json
 
-###
+{
+  "name": "Барсик",
+  "species": "Кот"
+}
+
+> {%
+    // Это важно: сохраняем ID из ответа для следующих запросов
+    client.global.set("new_animal_id", response.body.id);
+%}
+
+### 2. Поиграть (теперь переменные будут подхватываться)
+PUT {{ZooApi.Web_HostAddress}}/api/animals/{{new_animal_id}}/play
+Content-Type: application/json
+
+{
+  "intensity": 5
+}
