@@ -1,47 +1,45 @@
-﻿    namespace ZooApi.Web.Endpoints;
+﻿namespace ZooApi.Web.Endpoints;
 
-    public static class AnimalEndpoints
+public static class AnimalEndpoints
+{
+    public static void MapAnimals(this IEndpointRouteBuilder endpoints)
     {
-        public static void MapAnimals(this IEndpointRouteBuilder endpoints)
-        {
-            var group = endpoints.MapGroup("/api/animals");
-
-            group.MapGet("/", async (IAnimalService service, AnimalMap map) =>
-            {
-                var animals = await service.GetAllAsync();
-                return Results.Ok(map.ToDtoList(animals)); // Используем типизированный метод
-            });
-
-            group.MapGet("/{id}", async (Guid id, IAnimalService service, AnimalMap map) =>
-                await service.GetByIdAsync(id) is { } animal 
-                    ? Results.Ok(map.To(animal)) 
-                    : Results.NotFound());
+        var group = endpoints.MapGroup("/api/animals");
         
-            group.MapPost("/", async (CreateAnimalDto dto, IAnimalService service, AnimalMap map) =>
+        group.MapPost("/", async (CreateAnimalDto dto, IAnimalService service) =>
             {
-                // Если сервис принимает DTO, маппинг внутри сервиса. 
-                // Если сервис возвращает сущность — маппим здесь:
                 var entity = await service.CreateAsync(dto);
-                var resultDto = map.To(entity);
-                return Results.Created($"/api/animals/{resultDto.Id}", resultDto);
-            });
-            
-            group.MapPut("/{id}/feed", async (Guid id, FeedDto dto, IAnimalService service, AnimalMap map) =>
-                await service.FeedAsync(id, dto) is { } updated 
-                    ? Results.Ok(map.To(updated))
-                    : Results.NotFound());
-
-            group.MapPut("/{id}/play", async (Guid id, PlayDto dto, IAnimalService service, AnimalMap map) =>
+                return Results.Created($"/api/animals/{entity.Id}", entity.ToDto());
+            })
+            .AddEndpointFilter<ValidationFilter<CreateAnimalDto>>();
+        
+        group.MapPut("/{id}/feed", async (Guid id, FeedDto dto, IAnimalService service) =>
+            {
+                var updated = await service.FeedAsync(id, dto);
+                return updated is not null ? Results.Ok(updated.ToDto()) : Results.NotFound();
+            })
+            .AddEndpointFilter<ValidationFilter<FeedDto>>();
+        
+        group.MapPut("/{id}/play", async (Guid id, PlayDto dto, IAnimalService service) =>
             {
                 var updated = await service.PlayAsync(id, dto.Intensity);
-                return Results.Ok(map.To(updated));
-            });
-            
-            group.MapDelete("/{id}", async (Guid id, IAnimalService service) =>
-            {
-                await service.DeleteAsync(id);
-                return Results.NoContent();
-            });
+                return updated is not null ? Results.Ok(updated.ToDto()) : Results.NotFound();
+            })
+            .AddEndpointFilter<ValidationFilter<PlayDto>>();
+        
+        group.MapGet("/", async (IAnimalService service) => 
+            Results.Ok((await service.GetAllAsync()).Select(x => x.ToDto())));
 
-        }
+        group.MapGet("/{id}", async (Guid id, IAnimalService service) =>
+            await service.GetByIdAsync(id) is { } animal 
+                ? Results.Ok(animal.ToDto()) 
+                : Results.NotFound());
+
+        group.MapDelete("/{id}", async (Guid id, IAnimalService service) =>
+        {
+            await service.DeleteAsync(id);
+            return Results.NoContent();
+        });
     }
+}
+

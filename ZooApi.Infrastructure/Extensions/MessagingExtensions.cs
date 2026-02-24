@@ -16,8 +16,14 @@ public static class MessagingExtensions
             {
                 o.UsePostgres();
                 o.UseBusOutbox();
+                o.DuplicateDetectionWindow = TimeSpan.FromMinutes(30);
                 o.QueryDelay = TimeSpan.FromSeconds(1);
             });
+            
+            /*x.AddConfigureEndpointsCallback((context, cfg) =>
+            {
+                cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
+            });*/
             
             x.UsingRabbitMq((context, cfg) =>
             {

@@ -10,9 +10,7 @@ public static class ApplicationExtensions
         
         services.AddScoped<IValidator<CreateAnimalDto>, CreateAnimalDtoValidator>();
         services.AddScoped<IValidator<FeedDto>, FeedDtoValidator>();
-        services.AddScoped<IValidator<PlayDto>, PlayWithAnimalRequestValidator>();
-        
-        services.AddSingleton<AnimalMap>();
+        services.AddScoped<IValidator<PlayDto>, PlayDtoValidator>();
         
         return services;
     }

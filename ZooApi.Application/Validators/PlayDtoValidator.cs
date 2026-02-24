@@ -1,8 +1,8 @@
-﻿namespace ZooApi.Application.Validators;
+namespace ZooApi.Application.Validators;
 
-public class PlayWithAnimalRequestValidator : AbstractValidator<PlayDto>
+public class PlayDtoValidator : AbstractValidator<PlayDto>
 {
-    public PlayWithAnimalRequestValidator()
+    public PlayDtoValidator()
     {
         RuleFor(x => x.Intensity)
             .GreaterThan(0).WithMessage("Интенсивность игры должна быть больше 0");

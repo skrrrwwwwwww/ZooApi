@@ -1,4 +1,6 @@
-﻿    namespace ZooApi.Domain.Entities;
+﻿    using System.Globalization;
+
+    namespace ZooApi.Domain.Entities;
 
     public class Animal(string name, string species)
     {

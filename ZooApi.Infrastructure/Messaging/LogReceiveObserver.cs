@@ -9,7 +9,7 @@ public class LogReceiveObserver(ILogger<LogReceiveObserver> logger) : IReceiveOb
                                 string consumerType, 
                                 Exception exception) where T : class
     {
-        logger.LogError(exception, "Ошибка в консьюмере {Consumer}: {MessageId}. Сообщение: {ExceptionMessage}", 
+        logger.LogError(exception, "Error of consumer {Consumer}: {MessageId}. Message: {ExceptionMessage}", 
             consumerType, context.MessageId, exception.Message);
         return Task.CompletedTask;
     }

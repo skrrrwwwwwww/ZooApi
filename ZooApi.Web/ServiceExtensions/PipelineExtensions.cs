@@ -9,7 +9,7 @@ public static class PipelineExtensions
         app.UseCustomLogging();
         app.UseScalarAlways();
         app.MapAnimals();
-        
+        app.Run();
 
         return app;
     }

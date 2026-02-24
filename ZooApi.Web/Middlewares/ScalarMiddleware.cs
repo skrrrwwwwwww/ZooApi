@@ -1,4 +1,4 @@
-﻿namespace ZooApi.Web.Middleware;
+﻿namespace ZooApi.Web.Middlewares;
 
 public static class ScalarMiddleware
 {
@@ -13,4 +13,4 @@ public static class ScalarMiddleware
         });
         app.MapGet("/", () => Results.Redirect("/scalar")).ExcludeFromDescription();
     }
-}
+} 

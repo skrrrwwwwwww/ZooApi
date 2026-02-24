@@ -1,4 +1,5 @@
-﻿global using Microsoft.AspNetCore.Diagnostics;
+﻿global using FluentValidation;
+global using Microsoft.AspNetCore.Diagnostics;
 global using Microsoft.AspNetCore.Mvc;
 global using Scalar.AspNetCore;
 global using ZooApi.Application.DTOs;
@@ -8,5 +9,6 @@ global using ZooApi.Application.Mappings;
 global using ZooApi.Infrastructure.Extensions;
 global using ZooApi.Web.Endpoints;
 global using ZooApi.Web.ExceptionHandlers;
-global using ZooApi.Web.Middleware;
+global using ZooApi.Web.Filters;
+global using ZooApi.Web.Middlewares;
 global using ZooApi.Web.ServiceExtensions;

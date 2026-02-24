@@ -18,3 +18,5 @@ public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
             .HasDefaultValue(100);
     }
 }
+
+
