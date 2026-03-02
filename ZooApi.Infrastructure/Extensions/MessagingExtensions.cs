@@ -20,15 +20,9 @@ public static class MessagingExtensions
                 o.QueryDelay = TimeSpan.FromSeconds(1);
             });
             
-            /*x.AddConfigureEndpointsCallback((context, cfg) =>
-            {
-                cfg.UseEntityFrameworkOutbox<ZooDbContext>(context);
-            });*/
-            
             x.UsingRabbitMq((context, cfg) =>
             {
                 cfg.ConnectReceiveObserver(context.GetRequiredService<LogReceiveObserver>());
-                
                 var rabbitSettings = configuration.GetSection("RabbitMq");
                 cfg.Host(rabbitSettings["Host"] ?? "localhost", h =>
                 {

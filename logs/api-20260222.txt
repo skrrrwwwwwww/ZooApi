@@ -1,0 +1,26 @@
+2026-02-22 01:00:48.637 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-22 01:00:48.821 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-22 01:00:48.824 +03:00 [INF] Quartz Scheduler created
+2026-02-22 01:00:48.826 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-22 01:00:48.828 +03:00 [INF] RAMJobStore initialized.
+2026-02-22 01:00:48.830 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-22 01:00:48.831 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-22 01:00:48.833 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-22 01:00:48.849 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-22 01:00:48.911 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-22 01:00:48.912 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-22 01:00:48.913 +03:00 [INF] Hosting environment: Development
+2026-02-22 01:00:48.914 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-22 01:00:48.921 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-22 01:00:49.148 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-22 01:00:49.414 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-22 01:00:49.473 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 50.4824 ms
+2026-02-22 01:00:49.529 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 3.3513 ms
+2026-02-22 01:00:49.529 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 3.3412 ms
+2026-02-22 01:00:49.857 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 188.6436 ms
+2026-02-22 01:01:15.346 +03:00 [INF] HTTP POST /api/animals responded 201 in 1317.4395 ms
+2026-02-22 10:26:25.864 +03:00 [INF] Application is shutting down...
+2026-02-22 10:26:25.935 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-22 10:26:25.941 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-22 10:26:25.943 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-22 10:26:25.949 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.

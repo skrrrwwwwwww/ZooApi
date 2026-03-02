@@ -1,3 +1,12 @@
-﻿global using FluentValidation.TestHelper;
+﻿global using FluentAssertions;
+global using FluentValidation.TestHelper;
+global using MassTransit;
+global using Microsoft.Data.Sqlite;
+global using Microsoft.EntityFrameworkCore;
+global using NSubstitute;
+global using ZooApi.Application.Common.Contracts;
 global using ZooApi.Application.DTOs;
+global using ZooApi.Application.Services;
 global using ZooApi.Application.Validators;
+global using ZooApi.Domain.Entities;
+global using ZooApi.Infrastructure.Persistence;

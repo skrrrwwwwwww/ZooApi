@@ -4,5 +4,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=baccb7d3_002D664b_002D4ac1_002D871a_002Deb75d5794378/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateAnimalValidatorTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3C4E1636-401C-46ED-92E3-9091A9BA9026::net10.0::ZooApi.Application.UnitTests.Validators.CreateAnimalValidatorTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3C4E1636-401C-46ED-92E3-9091A9BA9026::net10.0::ZooApi.Application.UnitTests.Services.AnimalServiceTests.CreateAsync_ShouldSaveAnimalAndPublishEvent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3C4E1636-401C-46ED-92E3-9091A9BA9026::net10.0::ZooApi.Application.UnitTests.Services.AnimalServiceTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

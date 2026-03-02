@@ -13,7 +13,6 @@ global using ZooApi.Application.Common;
 global using ZooApi.Application.Common.Contracts;
 global using ZooApi.Application.DTOs;
 global using ZooApi.Application.Interfaces;
-global using ZooApi.Application.Mappings;
 global using ZooApi.Application.Services;
 global using ZooApi.Application.Validators;
 global using ZooApi.Domain.Entities;

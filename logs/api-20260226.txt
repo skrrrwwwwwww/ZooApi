@@ -1,0 +1,25 @@
+2026-02-26 13:23:15.993 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-26 13:23:16.397 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-26 13:23:16.400 +03:00 [INF] Quartz Scheduler created
+2026-02-26 13:23:16.403 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-26 13:23:16.406 +03:00 [INF] RAMJobStore initialized.
+2026-02-26 13:23:16.412 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-26 13:23:16.417 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-26 13:23:16.420 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-26 13:23:16.446 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-26 13:23:16.588 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-26 13:23:16.592 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-26 13:23:16.612 +03:00 [INF] Hosting environment: Development
+2026-02-26 13:23:16.614 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-26 13:23:16.632 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-26 13:23:17.051 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-26 13:23:17.537 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-26 13:23:17.699 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 131.3520 ms
+2026-02-26 13:23:17.785 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 4.9957 ms
+2026-02-26 13:23:17.785 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 4.9958 ms
+2026-02-26 13:23:18.491 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 461.8740 ms
+2026-02-26 13:24:18.343 +03:00 [INF] Application is shutting down...
+2026-02-26 13:24:18.471 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-26 13:24:18.480 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-26 13:24:18.485 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-26 13:24:18.497 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.

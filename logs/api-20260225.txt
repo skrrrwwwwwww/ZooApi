@@ -1,0 +1,587 @@
+2026-02-25 20:40:39.869 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 20:40:40.035 +03:00 [ERR] Hosting failed to start
+System.TypeLoadException: Could not load type 'MassTransit.Topology.MessagePublishTopology`1' from assembly 'MassTransit.Abstractions, Version=9.0.1.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa'.
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.Topology.PublishTopology.<GetMessageTopology>b__17_1[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 128
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 130
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.MassTransit.IRabbitMqPublishTopology.GetMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 26
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqConsumeTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqConsumeTopology.cs:line 92
+   at MassTransit.ConsumeTopology.<GetMessageTopology>b__16_1[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 123
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.ConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 125
+   at MassTransit.ConsumeTopology.MassTransit.IConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 45
+   at MassTransit.Configuration.TopologyConsumePipeSpecificationObserver.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Topology/Configuration/TopologyConsumePipeSpecificationObserver.cs:line 16
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.<>c__DisplayClass0_0`1.<MessageSpecificationCreated>b__0(IConsumePipeSpecificationObserver observer) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Configuration.ConsumePipeSpecification.CreateMessageSpecification[T](Type type) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 219
+   at MassTransit.Internals.DictionaryExtensions.GetOrAdd[TKey,TValue](IDictionary`2 dictionary, TKey key, Func`2 valueFactory) in /_/src/MassTransit.Abstractions/Internals/Extensions/DictionaryExtensions.cs:line 14
+   at MassTransit.Configuration.ConsumePipeSpecification.GetMessageSpecification[T]() in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 173
+   at MassTransit.Configuration.ConsumePipeSpecification.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 76
+   at MassTransit.Configuration.BusFactoryConfigurator.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/BusFactoryConfigurator.cs:line 105
+   at MassTransit.Configuration.MessageRetryConfigurationObserver.MessageConfigured[TMessage](IConsumePipeConfigurator configurator) in /_/src/MassTransit/Configuration/Configuration/Retry/MessageRetryConfigurationObserver.cs:line 32
+   at MassTransit.Configuration.ConfigurationObserver.<NotifyObserver>b__13_0[TMessage](IMessageConfigurationObserver observer) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConfigurationObserver.NotifyObserver[TMessage]() in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Configuration.ConfigurationObserver.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 72
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 125
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerMessageSpecification`2.Validate() in /_/src/MassTransit/Consumers/Configuration/ConsumerMessageSpecification.cs:line 33
+   at MassTransit.Configuration.ConsumerSpecification`1.<>c.<Validate>b__13_0(IConsumerMessageSpecification`1 x) in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ConsumerSpecification`1.Validate()+MoveNext() in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/ReceiveEndpointConfiguration.cs:line 63
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqReceiveEndpointConfiguration.cs:line 110
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.BaseHostConfiguration`2.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/BaseHostConfiguration.cs:line 159
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqHostConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqHostConfiguration.cs:line 137
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqBusFactoryConfigurator.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqBusFactoryConfigurator.cs:line 38
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MassTransit.MassTransitExceptionExtensions.ThrowIfContainsFailure(IEnumerable`1 results, String prefix) in /_/src/MassTransit.Abstractions/Exceptions/MassTransitExceptionExtensions.cs:line 18
+   at MassTransit.Configuration.TransportRegistrationBusFactory`1.CreateBus[T,TConfigurator](T configurator, IBusRegistrationContext context, Action`2 configure, IEnumerable`1 specifications) in /_/src/MassTransit/DependencyInjection/Configuration/TransportRegistrationBusFactory.cs:line 50
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqRegistrationBusFactory.CreateBus(IBusRegistrationContext context, IEnumerable`1 specifications, String busName) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqRegistrationBusFactory.cs:line 71
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.CreateBus[T](T busFactory, IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 152
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__DisplayClass7_0`1.<SetBusFactory>b__0(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 106
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__7`1.<SetBusFactory>b__7_1(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 108
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+2026-02-25 21:06:14.631 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:06:14.724 +03:00 [ERR] Hosting failed to start
+System.TypeLoadException: Could not load type 'MassTransit.Topology.MessagePublishTopology`1' from assembly 'MassTransit.Abstractions, Version=9.0.1.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa'.
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.Topology.PublishTopology.<GetMessageTopology>b__17_1[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 128
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 130
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.MassTransit.IRabbitMqPublishTopology.GetMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 26
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqConsumeTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqConsumeTopology.cs:line 92
+   at MassTransit.ConsumeTopology.<GetMessageTopology>b__16_1[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 123
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.ConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 125
+   at MassTransit.ConsumeTopology.MassTransit.IConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 45
+   at MassTransit.Configuration.TopologyConsumePipeSpecificationObserver.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Topology/Configuration/TopologyConsumePipeSpecificationObserver.cs:line 16
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.<>c__DisplayClass0_0`1.<MessageSpecificationCreated>b__0(IConsumePipeSpecificationObserver observer) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Configuration.ConsumePipeSpecification.CreateMessageSpecification[T](Type type) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 219
+   at MassTransit.Internals.DictionaryExtensions.GetOrAdd[TKey,TValue](IDictionary`2 dictionary, TKey key, Func`2 valueFactory) in /_/src/MassTransit.Abstractions/Internals/Extensions/DictionaryExtensions.cs:line 14
+   at MassTransit.Configuration.ConsumePipeSpecification.GetMessageSpecification[T]() in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 173
+   at MassTransit.Configuration.ConsumePipeSpecification.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 76
+   at MassTransit.Configuration.BusFactoryConfigurator.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/BusFactoryConfigurator.cs:line 105
+   at MassTransit.Configuration.MessageRetryConfigurationObserver.MessageConfigured[TMessage](IConsumePipeConfigurator configurator) in /_/src/MassTransit/Configuration/Configuration/Retry/MessageRetryConfigurationObserver.cs:line 32
+   at MassTransit.Configuration.ConfigurationObserver.<NotifyObserver>b__13_0[TMessage](IMessageConfigurationObserver observer) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConfigurationObserver.NotifyObserver[TMessage]() in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Configuration.ConfigurationObserver.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 72
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 125
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerMessageSpecification`2.Validate() in /_/src/MassTransit/Consumers/Configuration/ConsumerMessageSpecification.cs:line 33
+   at MassTransit.Configuration.ConsumerSpecification`1.<>c.<Validate>b__13_0(IConsumerMessageSpecification`1 x) in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ConsumerSpecification`1.Validate()+MoveNext() in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/ReceiveEndpointConfiguration.cs:line 63
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqReceiveEndpointConfiguration.cs:line 110
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.BaseHostConfiguration`2.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/BaseHostConfiguration.cs:line 159
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqHostConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqHostConfiguration.cs:line 137
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqBusFactoryConfigurator.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqBusFactoryConfigurator.cs:line 38
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MassTransit.MassTransitExceptionExtensions.ThrowIfContainsFailure(IEnumerable`1 results, String prefix) in /_/src/MassTransit.Abstractions/Exceptions/MassTransitExceptionExtensions.cs:line 18
+   at MassTransit.Configuration.TransportRegistrationBusFactory`1.CreateBus[T,TConfigurator](T configurator, IBusRegistrationContext context, Action`2 configure, IEnumerable`1 specifications) in /_/src/MassTransit/DependencyInjection/Configuration/TransportRegistrationBusFactory.cs:line 50
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqRegistrationBusFactory.CreateBus(IBusRegistrationContext context, IEnumerable`1 specifications, String busName) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqRegistrationBusFactory.cs:line 71
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.CreateBus[T](T busFactory, IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 152
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__DisplayClass7_0`1.<SetBusFactory>b__0(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 106
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__7`1.<SetBusFactory>b__7_1(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 108
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+2026-02-25 21:07:23.713 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:07:23.798 +03:00 [ERR] Hosting failed to start
+System.TypeLoadException: Could not load type 'MassTransit.Topology.MessagePublishTopology`1' from assembly 'MassTransit.Abstractions, Version=9.0.1.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa'.
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.Topology.PublishTopology.<GetMessageTopology>b__17_1[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 128
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 130
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.MassTransit.IRabbitMqPublishTopology.GetMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 26
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqConsumeTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqConsumeTopology.cs:line 92
+   at MassTransit.ConsumeTopology.<GetMessageTopology>b__16_1[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 123
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.ConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 125
+   at MassTransit.ConsumeTopology.MassTransit.IConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 45
+   at MassTransit.Configuration.TopologyConsumePipeSpecificationObserver.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Topology/Configuration/TopologyConsumePipeSpecificationObserver.cs:line 16
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.<>c__DisplayClass0_0`1.<MessageSpecificationCreated>b__0(IConsumePipeSpecificationObserver observer) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Configuration.ConsumePipeSpecification.CreateMessageSpecification[T](Type type) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 219
+   at MassTransit.Internals.DictionaryExtensions.GetOrAdd[TKey,TValue](IDictionary`2 dictionary, TKey key, Func`2 valueFactory) in /_/src/MassTransit.Abstractions/Internals/Extensions/DictionaryExtensions.cs:line 14
+   at MassTransit.Configuration.ConsumePipeSpecification.GetMessageSpecification[T]() in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 173
+   at MassTransit.Configuration.ConsumePipeSpecification.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 76
+   at MassTransit.Configuration.BusFactoryConfigurator.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/BusFactoryConfigurator.cs:line 105
+   at MassTransit.Configuration.MessageRetryConfigurationObserver.MessageConfigured[TMessage](IConsumePipeConfigurator configurator) in /_/src/MassTransit/Configuration/Configuration/Retry/MessageRetryConfigurationObserver.cs:line 32
+   at MassTransit.Configuration.ConfigurationObserver.<NotifyObserver>b__13_0[TMessage](IMessageConfigurationObserver observer) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConfigurationObserver.NotifyObserver[TMessage]() in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Configuration.ConfigurationObserver.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 72
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 125
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerMessageSpecification`2.Validate() in /_/src/MassTransit/Consumers/Configuration/ConsumerMessageSpecification.cs:line 33
+   at MassTransit.Configuration.ConsumerSpecification`1.<>c.<Validate>b__13_0(IConsumerMessageSpecification`1 x) in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ConsumerSpecification`1.Validate()+MoveNext() in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/ReceiveEndpointConfiguration.cs:line 63
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqReceiveEndpointConfiguration.cs:line 110
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.BaseHostConfiguration`2.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/BaseHostConfiguration.cs:line 159
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqHostConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqHostConfiguration.cs:line 137
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqBusFactoryConfigurator.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqBusFactoryConfigurator.cs:line 38
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MassTransit.MassTransitExceptionExtensions.ThrowIfContainsFailure(IEnumerable`1 results, String prefix) in /_/src/MassTransit.Abstractions/Exceptions/MassTransitExceptionExtensions.cs:line 18
+   at MassTransit.Configuration.TransportRegistrationBusFactory`1.CreateBus[T,TConfigurator](T configurator, IBusRegistrationContext context, Action`2 configure, IEnumerable`1 specifications) in /_/src/MassTransit/DependencyInjection/Configuration/TransportRegistrationBusFactory.cs:line 50
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqRegistrationBusFactory.CreateBus(IBusRegistrationContext context, IEnumerable`1 specifications, String busName) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqRegistrationBusFactory.cs:line 71
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.CreateBus[T](T busFactory, IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 152
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__DisplayClass7_0`1.<SetBusFactory>b__0(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 106
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__7`1.<SetBusFactory>b__7_1(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 108
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+2026-02-25 21:52:19.724 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:52:19.843 +03:00 [ERR] Hosting failed to start
+System.TypeLoadException: Could not load type 'MassTransit.Topology.MessagePublishTopology`1' from assembly 'MassTransit.Abstractions, Version=9.0.1.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa'.
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.Topology.PublishTopology.<GetMessageTopology>b__17_1[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 128
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 130
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.MassTransit.IRabbitMqPublishTopology.GetMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 26
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqConsumeTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqConsumeTopology.cs:line 92
+   at MassTransit.ConsumeTopology.<GetMessageTopology>b__16_1[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 123
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.ConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 125
+   at MassTransit.ConsumeTopology.MassTransit.IConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 45
+   at MassTransit.Configuration.TopologyConsumePipeSpecificationObserver.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Topology/Configuration/TopologyConsumePipeSpecificationObserver.cs:line 16
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.<>c__DisplayClass0_0`1.<MessageSpecificationCreated>b__0(IConsumePipeSpecificationObserver observer) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Configuration.ConsumePipeSpecification.CreateMessageSpecification[T](Type type) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 219
+   at MassTransit.Internals.DictionaryExtensions.GetOrAdd[TKey,TValue](IDictionary`2 dictionary, TKey key, Func`2 valueFactory) in /_/src/MassTransit.Abstractions/Internals/Extensions/DictionaryExtensions.cs:line 14
+   at MassTransit.Configuration.ConsumePipeSpecification.GetMessageSpecification[T]() in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 173
+   at MassTransit.Configuration.ConsumePipeSpecification.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 76
+   at MassTransit.Configuration.BusFactoryConfigurator.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/BusFactoryConfigurator.cs:line 105
+   at MassTransit.Configuration.MessageRetryConfigurationObserver.MessageConfigured[TMessage](IConsumePipeConfigurator configurator) in /_/src/MassTransit/Configuration/Configuration/Retry/MessageRetryConfigurationObserver.cs:line 32
+   at MassTransit.Configuration.ConfigurationObserver.<NotifyObserver>b__13_0[TMessage](IMessageConfigurationObserver observer) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConfigurationObserver.NotifyObserver[TMessage]() in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Configuration.ConfigurationObserver.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 72
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 125
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerMessageSpecification`2.Validate() in /_/src/MassTransit/Consumers/Configuration/ConsumerMessageSpecification.cs:line 33
+   at MassTransit.Configuration.ConsumerSpecification`1.<>c.<Validate>b__13_0(IConsumerMessageSpecification`1 x) in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ConsumerSpecification`1.Validate()+MoveNext() in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/ReceiveEndpointConfiguration.cs:line 63
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqReceiveEndpointConfiguration.cs:line 110
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.BaseHostConfiguration`2.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/BaseHostConfiguration.cs:line 159
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqHostConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqHostConfiguration.cs:line 137
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqBusFactoryConfigurator.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqBusFactoryConfigurator.cs:line 38
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MassTransit.MassTransitExceptionExtensions.ThrowIfContainsFailure(IEnumerable`1 results, String prefix) in /_/src/MassTransit.Abstractions/Exceptions/MassTransitExceptionExtensions.cs:line 18
+   at MassTransit.Configuration.TransportRegistrationBusFactory`1.CreateBus[T,TConfigurator](T configurator, IBusRegistrationContext context, Action`2 configure, IEnumerable`1 specifications) in /_/src/MassTransit/DependencyInjection/Configuration/TransportRegistrationBusFactory.cs:line 50
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqRegistrationBusFactory.CreateBus(IBusRegistrationContext context, IEnumerable`1 specifications, String busName) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqRegistrationBusFactory.cs:line 71
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.CreateBus[T](T busFactory, IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 152
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__DisplayClass7_0`1.<SetBusFactory>b__0(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 106
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__7`1.<SetBusFactory>b__7_1(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 108
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+2026-02-25 21:54:00.678 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:54:00.778 +03:00 [ERR] Hosting failed to start
+System.TypeLoadException: Could not load type 'MassTransit.Topology.MessagePublishTopology`1' from assembly 'MassTransit.Abstractions, Version=9.0.1.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa'.
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 55
+   at MassTransit.Topology.PublishTopology.<GetMessageTopology>b__17_1[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 128
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 130
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqPublishTopology.MassTransit.IRabbitMqPublishTopology.GetMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqPublishTopology.cs:line 26
+   at MassTransit.RabbitMqTransport.Topology.RabbitMqConsumeTopology.CreateMessageTopology[T]() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Topology/RabbitMqConsumeTopology.cs:line 92
+   at MassTransit.ConsumeTopology.<GetMessageTopology>b__16_1[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 123
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at MassTransit.ConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 125
+   at MassTransit.ConsumeTopology.MassTransit.IConsumeTopology.GetMessageTopology[T]() in /_/src/MassTransit/Topology/ConsumeTopology.cs:line 45
+   at MassTransit.Configuration.TopologyConsumePipeSpecificationObserver.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Topology/Configuration/TopologyConsumePipeSpecificationObserver.cs:line 16
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.<>c__DisplayClass0_0`1.<MessageSpecificationCreated>b__0(IConsumePipeSpecificationObserver observer) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumePipeSpecificationObservable.MessageSpecificationCreated[T](IMessageConsumePipeSpecification`1 specification) in /_/src/MassTransit.Abstractions/Middleware/Configuration/Consume/ConsumePipeSpecificationObservable.cs:line 13
+   at MassTransit.Configuration.ConsumePipeSpecification.CreateMessageSpecification[T](Type type) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 219
+   at MassTransit.Internals.DictionaryExtensions.GetOrAdd[TKey,TValue](IDictionary`2 dictionary, TKey key, Func`2 valueFactory) in /_/src/MassTransit.Abstractions/Internals/Extensions/DictionaryExtensions.cs:line 14
+   at MassTransit.Configuration.ConsumePipeSpecification.GetMessageSpecification[T]() in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 173
+   at MassTransit.Configuration.ConsumePipeSpecification.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 76
+   at MassTransit.Configuration.BusFactoryConfigurator.AddPipeSpecification[T](IPipeSpecification`1 specification) in /_/src/MassTransit/Configuration/Configuration/BusFactoryConfigurator.cs:line 105
+   at MassTransit.Configuration.MessageRetryConfigurationObserver.MessageConfigured[TMessage](IConsumePipeConfigurator configurator) in /_/src/MassTransit/Configuration/Configuration/Retry/MessageRetryConfigurationObserver.cs:line 32
+   at MassTransit.Configuration.ConfigurationObserver.<NotifyObserver>b__13_0[TMessage](IMessageConfigurationObserver observer) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConfigurationObserver.NotifyObserver[TMessage]() in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 106
+   at MassTransit.Configuration.ConfigurationObserver.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConfigurationObserver.cs:line 72
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 125
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumePipeSpecification.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/ConsumePipeSpecification.cs:line 104
+   at MassTransit.Configuration.EndpointConfiguration.MassTransit.IConsumerConfigurationObserver.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit/Configuration/Configuration/EndpointConfiguration.cs:line 114
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerConfigurationObservable.<>c__DisplayClass1_0`2.<ConsumerMessageConfigured>b__0(IConsumerConfigurationObserver observer) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Util.Connectable`1.ForEach(Action`1 callback) in /_/src/MassTransit.Abstractions/Util/Connectable.cs:line 120
+   at MassTransit.Configuration.ConsumerConfigurationObservable.ConsumerMessageConfigured[TConsumer,TMessage](IConsumerMessageConfigurator`2 configurator) in /_/src/MassTransit.Abstractions/Configuration/Configuration/ConsumerConfigurationObservable.cs:line 20
+   at MassTransit.Configuration.ConsumerMessageSpecification`2.Validate() in /_/src/MassTransit/Consumers/Configuration/ConsumerMessageSpecification.cs:line 33
+   at MassTransit.Configuration.ConsumerSpecification`1.<>c.<Validate>b__13_0(IConsumerMessageSpecification`1 x) in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ConsumerSpecification`1.Validate()+MoveNext() in /_/src/MassTransit/Consumers/Configuration/ConsumerSpecification.cs:line 73
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.ReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/ReceiveEndpointConfiguration.cs:line 63
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqReceiveEndpointConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqReceiveEndpointConfiguration.cs:line 110
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at MassTransit.Configuration.BaseHostConfiguration`2.Validate()+MoveNext() in /_/src/MassTransit/Configuration/Configuration/BaseHostConfiguration.cs:line 159
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqHostConfiguration.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqHostConfiguration.cs:line 137
+   at System.Linq.Enumerable.ConcatIterator`1.MoveNext()
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqBusFactoryConfigurator.Validate()+MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqBusFactoryConfigurator.cs:line 38
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MassTransit.MassTransitExceptionExtensions.ThrowIfContainsFailure(IEnumerable`1 results, String prefix) in /_/src/MassTransit.Abstractions/Exceptions/MassTransitExceptionExtensions.cs:line 18
+   at MassTransit.Configuration.TransportRegistrationBusFactory`1.CreateBus[T,TConfigurator](T configurator, IBusRegistrationContext context, Action`2 configure, IEnumerable`1 specifications) in /_/src/MassTransit/DependencyInjection/Configuration/TransportRegistrationBusFactory.cs:line 50
+   at MassTransit.RabbitMqTransport.Configuration.RabbitMqRegistrationBusFactory.CreateBus(IBusRegistrationContext context, IEnumerable`1 specifications, String busName) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/Configuration/RabbitMqRegistrationBusFactory.cs:line 71
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.CreateBus[T](T busFactory, IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 152
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__DisplayClass7_0`1.<SetBusFactory>b__0(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 106
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MassTransit.Configuration.ServiceCollectionBusConfigurator.<>c__7`1.<SetBusFactory>b__7_1(IServiceProvider provider) in /_/src/MassTransit/DependencyInjection/Configuration/ServiceCollectionBusConfigurator.cs:line 108
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+2026-02-25 21:55:01.682 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:55:01.914 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-25 21:55:01.915 +03:00 [INF] Quartz Scheduler created
+2026-02-25 21:55:01.916 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-25 21:55:01.918 +03:00 [INF] RAMJobStore initialized.
+2026-02-25 21:55:01.920 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-25 21:55:01.921 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-25 21:55:01.922 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-25 21:55:01.935 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-25 21:55:02.007 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-25 21:55:02.008 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-25 21:55:02.009 +03:00 [INF] Hosting environment: Development
+2026-02-25 21:55:02.011 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-25 21:55:02.018 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-25 21:55:02.221 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-25 21:55:03.005 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-25 21:55:03.091 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 73.6412 ms
+2026-02-25 21:55:03.210 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 200 in 21.9651 ms
+2026-02-25 21:55:03.262 +03:00 [INF] HTTP GET /scalar/scalar.js responded 200 in 74.0611 ms
+2026-02-25 21:55:03.739 +03:00 [INF] HTTP GET /favicon.ico responded 404 in 0.4534 ms
+2026-02-25 21:55:03.793 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 275.3403 ms
+2026-02-25 21:56:26.705 +03:00 [INF] Application is shutting down...
+2026-02-25 21:56:26.791 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-25 21:56:26.795 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-25 21:56:26.797 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-25 21:56:26.804 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-25 21:56:29.414 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 21:56:29.582 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-25 21:56:29.584 +03:00 [INF] Quartz Scheduler created
+2026-02-25 21:56:29.586 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-25 21:56:29.587 +03:00 [INF] RAMJobStore initialized.
+2026-02-25 21:56:29.589 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-25 21:56:29.590 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-25 21:56:29.591 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-25 21:56:29.602 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-25 21:56:29.661 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-25 21:56:29.663 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-25 21:56:29.664 +03:00 [INF] Hosting environment: Development
+2026-02-25 21:56:29.665 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-25 21:56:29.672 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-25 21:56:29.888 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-25 21:56:30.132 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-25 21:56:30.187 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 43.9488 ms
+2026-02-25 21:56:30.232 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 2.8926 ms
+2026-02-25 21:56:30.235 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 0.2009 ms
+2026-02-25 21:56:30.734 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 186.5758 ms
+2026-02-25 21:56:39.860 +03:00 [INF] Application is shutting down...
+2026-02-25 21:56:39.941 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-25 21:56:39.945 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-25 21:56:39.948 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-25 21:56:39.954 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-25 22:24:29.980 +03:00 [INF] Configured endpoint zoo-api-animal-created, Consumer: ZooApi.Application.Services.AnimalCreatedConsumer
+2026-02-25 22:24:30.208 +03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-25 22:24:30.212 +03:00 [INF] Quartz Scheduler created
+2026-02-25 22:24:30.214 +03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-25 22:24:30.215 +03:00 [INF] RAMJobStore initialized.
+2026-02-25 22:24:30.218 +03:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-25 22:24:30.220 +03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-25 22:24:30.224 +03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-25 22:24:30.245 +03:00 [INF] Adding 0 jobs, 0 triggers.
+2026-02-25 22:24:30.326 +03:00 [INF] Now listening on: http://localhost:5011
+2026-02-25 22:24:30.329 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-25 22:24:30.338 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-25 22:24:30.343 +03:00 [INF] Hosting environment: Development
+2026-02-25 22:24:30.346 +03:00 [INF] Content root path: C:\Users\skrrrwwwwwww\RiderProjects\ZooApi\ZooApi.Web
+2026-02-25 22:24:30.626 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2026-02-25 22:24:30.838 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-25 22:24:30.920 +03:00 [INF] HTTP GET /scalar/v1 responded 200 in 70.7713 ms
+2026-02-25 22:24:30.965 +03:00 [INF] HTTP GET /scalar/scalar.js responded 304 in 2.6889 ms
+2026-02-25 22:24:30.965 +03:00 [INF] HTTP GET /scalar/scalar.aspnetcore.js responded 304 in 2.6890 ms
+2026-02-25 22:24:31.623 +03:00 [INF] HTTP GET /openapi/v1.json responded 200 in 477.9146 ms
+2026-02-25 22:24:38.188 +03:00 [INF] HTTP POST /api/animals responded 201 in 646.4312 ms
+2026-02-25 22:26:18.042 +03:00 [INF] Application is shutting down...
+2026-02-25 22:26:18.152 +03:00 [INF] Bus stopped: "rabbitmq://localhost/"
+2026-02-25 22:26:18.157 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-25 22:26:18.159 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-25 22:26:18.166 +03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
