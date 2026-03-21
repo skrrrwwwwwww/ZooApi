@@ -1,18 +1,18 @@
-﻿namespace ZooApi.Web.ServiceExtensions;
+﻿    namespace ZooApi.Web.ServiceExtensions;
 
-public static class PipelineExtensions
-{
-    public static WebApplication UseApiPipeline(this WebApplication app)
+    public static class PipelineExtensions
     {
-        app.UseHttpsRedirection();
-        
-        app.UseExceptionHandler();
-        app.UseCustomLogging();
-        
-        app.UseScalarAlways();
-        
-        app.MapAnimals();
+        public static WebApplication UseApiPipeline(this WebApplication app)
+        {
+            if (!app.Environment.IsDevelopment()) 
+                app.UseHttpsRedirection();
+            
+            app.UseExceptionHandler();
+            app.UseCustomLogging();
+            app.MapOpenApi();
+            app.UseSwaggerAlways();
+            app.MapControllers();
 
-        return app;
+            return app;
+        }
     }
-}

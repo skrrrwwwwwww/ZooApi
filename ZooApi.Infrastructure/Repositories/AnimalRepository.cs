@@ -3,7 +3,9 @@
 public class AnimalRepository(ZooDbContext context) : IAnimalRepository
 {
     public async Task<List<Animal>> GetAllAsync() =>
-        await context.Animals.AsNoTracking().ToListAsync();
+        await context.Animals
+            .AsNoTracking()
+            .ToListAsync();
 
     public async Task<Animal?> GetByIdAsync(Guid id) => 
         await context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
@@ -11,7 +13,6 @@ public class AnimalRepository(ZooDbContext context) : IAnimalRepository
     public async Task<Animal> AddAsync(Animal animal)
     {
         context.Animals.Add(animal);
-        // await context.SaveChangesAsync();
         return animal;
     }
     
@@ -28,7 +29,9 @@ public class AnimalRepository(ZooDbContext context) : IAnimalRepository
 
     public async Task DeleteAsync(Guid id)
     {
-        var rows = await context.Animals.Where(a => a.Id == id).ExecuteDeleteAsync();
+        var rows = await context.Animals
+            .Where(a => a.Id == id)
+            .ExecuteDeleteAsync();
         if (rows == 0) throw new KeyNotFoundException();
     }
 }

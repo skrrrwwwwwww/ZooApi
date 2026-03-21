@@ -11,7 +11,7 @@ public static class SerilogExtensions
             .ReadFrom.Configuration(context.Configuration)
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .WriteTo.File("Logs/api-.txt", 
+            .WriteTo.File("../Logs/api-.txt", 
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: 7));
     }

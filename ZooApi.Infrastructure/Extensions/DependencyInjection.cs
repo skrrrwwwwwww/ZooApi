@@ -9,7 +9,7 @@ public static class DependencyInjection
         services.AddPersistence(configuration);
         services.AddMessaging(configuration);
         services.AddRedis(configuration);
-        
+         
         return services;
     }
 }

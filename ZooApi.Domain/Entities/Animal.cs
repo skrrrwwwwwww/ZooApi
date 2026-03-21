@@ -15,7 +15,6 @@ public class Animal(string name, string species)
     public int Energy { get; private set; } = 100;
     
     public int Intensity { get; private set; }
-
     
     protected Animal() : this("Internal", "Internal") { }
 

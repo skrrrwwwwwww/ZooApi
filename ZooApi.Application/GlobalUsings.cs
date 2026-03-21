@@ -8,7 +8,6 @@ global using ZooApi.Application.Common;
 global using ZooApi.Application.Common.Contracts;
 global using ZooApi.Application.Interfaces;
 global using MimeKit;
-global using MailKit.Net.Smtp;
 global using MailKit.Security;
 global using System.Text.Json;
 global using Microsoft.Extensions.Caching.Distributed;
