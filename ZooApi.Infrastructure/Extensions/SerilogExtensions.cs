@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Serilog;
-
-namespace ZooApi.Infrastructure.Extensions;
+﻿namespace ZooApi.Infrastructure.Extensions;
 
 public static class SerilogExtensions
 {

@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿namespace ZooApi.Infrastructure.Configurations;
 
-namespace ZooApi.Infrastructure.Configurations;
 public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
 {
     public void Configure(EntityTypeBuilder<Animal> builder)

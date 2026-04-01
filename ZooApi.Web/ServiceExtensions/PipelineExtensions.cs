@@ -1,4 +1,4 @@
-﻿    namespace ZooApi.Web.ServiceExtensions;
+﻿namespace ZooApi.Web.ServiceExtensions;
 
     public static class PipelineExtensions
     {

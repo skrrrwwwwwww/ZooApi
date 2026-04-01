@@ -1,3 +1,3 @@
-﻿    namespace ZooApi.Application.DTOs;
+﻿namespace ZooApi.Application.DTOs;
 
-    public record PlayDto(int Intensity);
+public record PlayDto(int Intensity);

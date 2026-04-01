@@ -1,6 +1,4 @@
-﻿using MailKit.Net.Smtp;
-
-namespace ZooApi.Application.Services;
+﻿namespace ZooApi.Application.Services;
 
 public class EmailService(IConfiguration configuration) : IEmailService
 {

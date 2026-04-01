@@ -1,8 +1,4 @@
-﻿        using Microsoft.Extensions.Configuration;
-        using Microsoft.Extensions.DependencyInjection;
-        using ZooApi.Application.Services;
-        
-        namespace ZooApi.Infrastructure.Extensions;
+﻿namespace ZooApi.Infrastructure.Extensions;
 
         public static class MessagingExtensions
         {
