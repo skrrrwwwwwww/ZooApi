@@ -5,6 +5,7 @@ public static class ApplicationExtensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IAnimalService, AnimalService>();
+        services.AddScoped<IOwnerService, OwnerService>();
         services.AddScoped<IRedisCacheService, RedisCacheService>();
         services.AddScoped<IEmailService, EmailService>();
         

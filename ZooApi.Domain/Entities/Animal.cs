@@ -16,9 +16,6 @@ public class Animal(string name, string species)
     
     public int Intensity { get; private set; }
     
-    public Guid OwnerId { get; private set; }
-    public Owner Owner { get; private set; }
-
     protected Animal() : this("Internal", "Internal") { }
 
     public void Feed(int amount) => Energy = amount is < 1 or > 100 
