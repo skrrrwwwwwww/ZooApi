@@ -6,7 +6,7 @@
 public class AnimalsController(IAnimalService service, IMapper mapper) : ControllerBase
 {
     [HttpGet]
-    [EndpointSummary("Список всех обитателей 📋")] // СистемныйSummary
+    [EndpointSummary("Список всех обитателей 📋")]
     [EndpointDescription("Возвращает полный список животных. Поддерживает актуальные данные.")]
     [ProducesResponseType(typeof(IEnumerable<AnimalDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll()

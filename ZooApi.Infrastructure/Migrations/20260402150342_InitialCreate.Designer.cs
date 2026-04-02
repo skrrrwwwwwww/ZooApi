@@ -12,8 +12,8 @@ using ZooApi.Infrastructure;
 namespace ZooApi.Infrastructure.Migrations
 {
     [DbContext(typeof(ZooDbContext))]
-    [Migration("20260210010017_InitMigration")]
-    partial class InitMigration
+    [Migration("20260402150342_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -12,7 +12,12 @@
     depends_on:
       - postgres
       - rabbitmq
-      
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ] # Нужно добавить HealthChecks в .NET код!
+      interval: 15s
+      timeout: 10s
+      retries: 3
+
   postgres:
     image: postgres:17
     container_name: zoo_postgres
@@ -24,21 +29,36 @@
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U zoo_user -d zoo_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   rabbitmq:
     image: rabbitmq:4.0-management
     container_name: zoo_rabbit
     ports:
-      - "5672:5672"   
-      - "15672:15672" 
+      - "5672:5672"
+      - "15672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
-      
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:15672" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
-  
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
 volumes:
   postgres_data:

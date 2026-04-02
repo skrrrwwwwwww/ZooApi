@@ -13,4 +13,4 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 global using Serilog;
-global using ZooApi.Application.Services;
+global using ZooApi.Application.Services; 
