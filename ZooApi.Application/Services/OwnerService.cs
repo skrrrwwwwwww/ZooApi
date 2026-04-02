@@ -33,7 +33,6 @@ public class OwnerService(
         
         context.Owners.Add(owner);
         
-        // Публикуем событие создания (если нужно для интеграций)
         await publishEndpoint.Publish(new OwnerCreated(owner.Id, owner.Name));
         
         await context.SaveChangesAsync();
