@@ -10,6 +10,7 @@ global using ZooApi.Application.Interfaces;
 global using MimeKit;
 global using MailKit.Security;
 global using System.Text.Json;
+global using FluentValidation;
 global using MailKit.Net.Smtp;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Caching.Distributed;

@@ -1,22 +1,46 @@
 ﻿namespace ZooApi.Application.Services;
 
 public class AnimalService(
-    IZooDbContext context,  
+    IZooDbContext context,
     IPublishEndpoint publishEndpoint)
     : IAnimalService
 {
-    public async Task<List<Animal>> GetAllAsync() =>
-        await context.Animals.AsNoTracking().ToListAsync();
+    public async Task<PagedResult<Animal>> GetAllAsync(int pageNumber, int pageSize)
+    {
+        var query = context.Animals.AsNoTracking();
+
+        var totalCount = await query.CountAsync();
+
+        var items = await query
+            .Include(a => a.Owner) // В сущности Animal свойство называется Owner (в единственном числе)
+            .OrderBy(a => a.Name) // Сортировка по имени животного
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return new PagedResult<Animal>(items, totalCount, pageNumber, pageSize);
+    }
 
     public async Task<Animal?> GetByIdAsync(Guid id) =>
         await context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
 
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {
-        var animal = new Animal(dto.Name, dto.Species);
+        var ownerExists = await context.Owners.AnyAsync(o => o.Id == dto.OwnerId);
+    
+        if (!ownerExists)
+        {
+            // Выкидываем исключение, которое потом можно перехватить
+            throw new KeyNotFoundException($"Владелец с ID {dto.OwnerId} не найден в базе.");
+        }
+
+        // 2. Если всё ок — создаем льва
+        var animal = new Animal(dto.Name, dto.Species, dto.OwnerId);
         context.Animals.Add(animal);
-        await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
+    
         await context.SaveChangesAsync();
+    
+        await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
         return animal;
     }
 

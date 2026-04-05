@@ -7,8 +7,6 @@ global using ZooApi.Web.MiddlewareExtensions;
 global using Microsoft.AspNetCore.Diagnostics;
 global using Microsoft.AspNetCore.Mvc;
 global using AutoMapper;
-global using Microsoft.EntityFrameworkCore;
 global using ZooApi.Application.DTOs;
 global using ZooApi.Application.Interfaces;
 global using Swashbuckle.AspNetCore.Annotations;
-global using ZooApi.Infrastructure; 

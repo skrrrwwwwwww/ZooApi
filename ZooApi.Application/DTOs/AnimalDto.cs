@@ -5,4 +5,7 @@ public record AnimalDto(
     string Name,
     string Species,
     int Energy,
-    int Intensity);
+    int Intensity,
+    Guid OwnerId, // ID владельца для ссылок
+    string OwnerName // Имя владельца для отображения в списке
+);

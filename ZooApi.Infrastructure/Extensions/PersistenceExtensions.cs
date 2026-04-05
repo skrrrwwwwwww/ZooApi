@@ -4,13 +4,20 @@ public static class PersistenceExtensions
 {
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection") 
-                               ?? "Host=localhost;Database=postgres;Username=postgres;Password=password123";
-    
-        services.AddDbContext<ZooDbContext>(options => options.UseNpgsql(connectionString));
-        
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+        if (string.IsNullOrEmpty(connectionString))
+        {
+            throw new InvalidOperationException("Строка подключения 'DefaultConnection' не найдена в конфигурации!");
+        }
+
+        services.AddDbContext<ZooDbContext>(options 
+            => options.UseNpgsql(connectionString)
+                .EnableDetailedErrors()
+                .EnableSensitiveDataLogging());
+
         services.AddScoped<IZooDbContext>(provider => provider.GetRequiredService<ZooDbContext>());
-    
+
         return services;
     }
 }

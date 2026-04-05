@@ -3,8 +3,8 @@
 public class ZooDbContext(DbContextOptions<ZooDbContext> options)
     : DbContext(options), IZooDbContext
 {
-    public DbSet<Animal> Animals { get; set; } = null!;
-    public DbSet<Owner> Owners { get; set; } = null!;
+    public DbSet<Animal> Animals => Set<Animal>();
+    public DbSet<Owner> Owners => Set<Owner>();
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

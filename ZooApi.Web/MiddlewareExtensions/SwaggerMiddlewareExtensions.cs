@@ -5,18 +5,31 @@ public static class SwaggerMiddlewareExtensions
     public static void AddSwaggerDocumentation(this IServiceCollection services)
     {
         services.AddEndpointsApiExplorer();
-        services.AddOpenApi();
-    }
 
-    public static void UseSwaggerAlways(this WebApplication app)
-    {
-        app.UseSwaggerUI(options =>
+        services.AddOpenApi(options =>
         {
-            options.SwaggerEndpoint("/openapi/v1.json", "Zoo API v1");
-            options.RoutePrefix = "swagger";
-            options.DocumentTitle = "Zoo API Reference";
-        });
+            options.AddDocumentTransformer((document, context, cancellationToken) =>
+            {
+                document.Info.Title = "Zoo Management API";
+                document.Info.Version = "v1";
+                document.Info.Description = @"
+### 🐾 Система управления современным зоопарком
 
-        app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
+Это API предоставляет полный инструментарий для работы с обитателями и их владельцами.
+
+**Основные возможности:**
+*   **Animals**: Полный цикл учета животных — от регистрации нового жильца до выписки. Можно кормить питомцев и играть с ними через соответствующие интерактивные эндпоинты.
+*   **Owners**: Управление базой владельцев (спонсоров/опекунов) с поддержкой пагинации для больших списков.
+
+---
+*По вопросам интеграции обращайтесь в отдел разработки ZooApi.*";
+                document.Info.Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                {
+                    Name = "Техподдержка Zoo API",
+                    Email = "Shikarevivan2004@gmail.com"
+                };
+                return Task.CompletedTask;
+            });
+        });
     }
 }

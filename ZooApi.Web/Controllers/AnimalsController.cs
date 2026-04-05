@@ -1,4 +1,6 @@
-﻿namespace ZooApi.Web.Controllers;
+﻿using ZooApi.Application.Common;
+
+namespace ZooApi.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -9,10 +11,16 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     [EndpointSummary("Список всех обитателей 📋")]
     [EndpointDescription("Возвращает полный список животных. Поддерживает актуальные данные.")]
     [ProducesResponseType(typeof(IEnumerable<AnimalDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
-        var animals = await service.GetAllAsync();
-        return Ok(mapper.Map<List<AnimalDto>>(animals));
+        if (pageNumber < 1) pageNumber = 1;
+        if (pageSize > 100) pageSize = 100;
+
+        var result = await service.GetAllAsync(pageNumber, pageSize);
+    
+        var dtoItems = mapper.Map<List<AnimalDto>>(result.Items);
+    
+        return Ok(new PagedResult<AnimalDto>(dtoItems, result.TotalCount, result.PageNumber, result.PageSize));
     }
 
     [HttpGet("{id:guid}")]
@@ -33,7 +41,8 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     public async Task<IActionResult> Create([FromBody] CreateAnimalDto dto)
     {
         var entity = await service.CreateAsync(dto);
-        var resultDto = mapper.Map<AnimalDto>(entity);
+        // ВОТ ТУТ: обязательно мапим в DTO, чтобы разорвать связь с Owner
+        var resultDto = mapper.Map<AnimalDto>(entity); 
         return CreatedAtAction(nameof(GetById), new { id = resultDto.Id }, resultDto);
     }
 

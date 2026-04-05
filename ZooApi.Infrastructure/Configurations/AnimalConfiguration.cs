@@ -16,5 +16,11 @@ public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
         
         builder.Property(e => e.Energy)
             .HasDefaultValue(100);
+        
+        builder.HasOne(a => a.Owner)         
+            .WithMany(o => o.Animals)       
+            .HasForeignKey(a => a.OwnerId)  
+            .IsRequired()                   
+            .OnDelete(DeleteBehavior.Cascade); 
     }
 }

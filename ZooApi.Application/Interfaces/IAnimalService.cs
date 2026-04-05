@@ -2,7 +2,7 @@
 
 public interface IAnimalService
 {
-    Task<List<Animal>> GetAllAsync();
+    Task<PagedResult<Animal>> GetAllAsync(int pageNumber, int pageSize);
     Task<Animal?> GetByIdAsync(Guid id);
     Task<Animal> CreateAsync(CreateAnimalDto dto);
     Task<Animal> FeedAsync(Guid id, FeedDto dto);

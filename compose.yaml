@@ -9,11 +9,12 @@
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=zoo_db;Username=zoo_user;Password=zoo_pass
       - RabbitMq__Host=rabbitmq
+      - ConnectionStrings__Redis=redis:6379
     depends_on:
       - postgres
       - rabbitmq
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ] # Нужно добавить HealthChecks в .NET код!
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
       interval: 15s
       timeout: 10s
       retries: 3
