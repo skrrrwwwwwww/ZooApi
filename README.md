@@ -41,7 +41,7 @@ Despite having only two core entities (**Animal** and **Owner**), the project is
 
 ## 🛠️ Tech Stack
 
-*   **Runtime**: .NET 9 (C# 13)
+*   **Runtime**: .NET 10 (C# 14)
 *   **API Documentation**: `Microsoft.AspNetCore.OpenApi` + Swagger UI.
 *   **Object Mapping**: AutoMapper.
 *   **Validation**: Data Annotations & Custom Logic.
