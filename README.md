@@ -41,7 +41,7 @@ Despite having only two core entities (**Animal** and **Owner**), the project is
 
 ## 🛠️ Technology Stack
 
-  **Framework**: `.NET 9` (C# 13)
+  **Framework**: `.NET 10` (C# 14)
 *   **ORM**: `Entity Framework Core` (Npgsql)
 *   **Messaging**: `MassTransit` & `RabbitMQ`
 *   **Caching**: `StackExchange.Redis`
