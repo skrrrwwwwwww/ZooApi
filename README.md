@@ -39,13 +39,22 @@ Despite having only two core entities (**Animal** and **Owner**), the project is
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-*   **Runtime**: .NET 10 (C# 14)
-*   **API Documentation**: `Microsoft.AspNetCore.OpenApi` + Swagger UI.
-*   **Object Mapping**: AutoMapper.
-*   **Validation**: Data Annotations & Custom Logic.
-*   **Patterns**: Dependency Injection, Repository/Service Pattern, Middleware Extensions.
+  **Framework**: `.NET 9` (C# 13)
+*   **ORM**: `Entity Framework Core` (Npgsql)
+*   **Messaging**: `MassTransit` & `RabbitMQ`
+*   **Caching**: `StackExchange.Redis`
+*   **Monitoring**: `Health Checks` for RabbitMQ and System status.
+
+### Application Logic
+*   **Mapping**: `AutoMapper` (with DI integration).
+*   **Validation**: `FluentValidation` for strict request handling.
+*   **Communication**: `MailKit` & `MimeKit` for SMTP/Email services.
+
+### API & Documentation
+*   **OpenAPI/Swagger**: `Swashbuckle.AspNetCore` with custom `Annotations` and `EndpointDescriptions`.
+*   **Routing**: Custom `MiddlewareExtensions` for a clean `Program.cs`.
 
 ---
 
