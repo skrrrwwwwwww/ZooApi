@@ -1,8 +1,0 @@
-﻿<Project>
-    <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    </PropertyGroup>
-    <ItemGroup>
-        <!-- Сюда Rider сам предложит перенести пакеты -->
-    </ItemGroup>
-</Project>
