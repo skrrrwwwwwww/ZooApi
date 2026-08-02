@@ -1,0 +1,34 @@
+name: .NET Core CI/CD
+
+on:
+  push:
+    branches: [ "master", "main" ]
+
+env:
+  IMAGE_NAME: 'zooapi-api'
+  DOCKERFILE_PATH: 'ZooApi.Web/Dockerfile'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET via global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run Tests
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Build Docker Image
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} -t ${{ env.IMAGE_NAME }}:latest -f ${{ env.DOCKERFILE_PATH }} .
