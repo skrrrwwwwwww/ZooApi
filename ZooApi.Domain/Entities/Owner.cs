@@ -30,4 +30,4 @@ public class Owner
             throw new ArgumentNullException(nameof(animal), "Животное не может быть пустым"); 
         _animals.Add(animal);
     }
-}
+} 

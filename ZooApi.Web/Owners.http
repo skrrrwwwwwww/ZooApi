@@ -1,0 +1,35 @@
+@ZooApi.Web_HostAddress = http://localhost:5011
+
+### 1. Получить список всех владельцев (с пагинацией)
+GET {{ZooApi.Web_HostAddress}}/api/Owners?pageNumber=1&pageSize=10
+Accept: application/json
+
+### 2. Получить карточку владельца по ID
+# Замени GUID на существующий в базе
+GET {{ZooApi.Web_HostAddress}}/api/Owners/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Accept: application/json
+
+### 3. Зарегистрировать нового владельца (POST)
+POST {{ZooApi.Web_HostAddress}}/api/Owners
+Content-Type: application/json
+
+{
+  "name": "Иван Иванов",
+  "email": "ivan.ivanov@example.com",
+  "phone": "+79991234567"
+}
+
+### 4. Обновить данные владельца (PUT)
+# Замени GUID на реальный ID владельца
+PUT {{ZooApi.Web_HostAddress}}/api/Owners/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Content-Type: application/json
+
+{
+  "name": "Иван Петрович Иванов",
+  "email": "ivan.new@example.com",
+  "phone": "+79997654321"
+}
+
+### 5. Удалить владельца (DELETE)
+# Замени GUID на реальный ID владельца
+DELETE {{ZooApi.Web_HostAddress}}/api/Owners/3fa85f64-5717-4562-b3fc-2c963f66afa6

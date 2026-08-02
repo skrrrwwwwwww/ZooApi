@@ -2,7 +2,7 @@
 services:
   zooapi.web:
     build:
-      context: "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi"
+      context: "/home/skrrrwwwwwww/RiderProjects/ZooApi"
       dockerfile: "ZooApi.Web/Dockerfile"
       target: "base"
     command: []
@@ -15,8 +15,7 @@ services:
     image: "zooapi.web:dev"
     ports: []
     volumes:
-    - "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi\\ZooApi.Web:/app:rw"
-    - "C:\\Users\\skrrrwwwwwww\\RiderProjects\\ZooApi:/src:rw"
-    - "C:\\Users\\skrrrwwwwwww\\AppData\\Roaming\\Microsoft\\UserSecrets:/home/app/.microsoft/usersecrets"
-    - "C:\\Users\\skrrrwwwwwww\\.nuget\\packages:/home/app/.nuget/packages"
+    - "/home/skrrrwwwwwww/RiderProjects/ZooApi/ZooApi.Web:/app:rw"
+    - "/home/skrrrwwwwwww/RiderProjects/ZooApi:/src:rw"
+    - "/home/skrrrwwwwwww/.nuget/packages:/home/app/.nuget/packages"
     working_dir: "/app"

@@ -1,0 +1,43 @@
+@ZooApi.Web_HostAddress = http://localhost:5011
+
+### 1. Получить список всех обитателей (с пагинацией)
+GET {{ZooApi.Web_HostAddress}}/api/Animals?pageNumber=1&pageSize=10
+Accept: application/json
+
+### 2. Получить карточку животного по ID
+# Замени GUID на существующий в базе
+GET {{ZooApi.Web_HostAddress}}/api/Animals/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Accept: application/json
+
+### 3. Зарегистрировать нового жильца (POST)
+POST {{ZooApi.Web_HostAddress}}/api/Animals
+Content-Type: application/json
+
+{
+  "name": "Сеня",
+  "species": "Тигр",
+  "age": 4
+}
+
+### 4. Покормить питомца (PUT)
+# Замени GUID на реальный ID животного
+PUT {{ZooApi.Web_HostAddress}}/api/Animals/3fa85f64-5717-4562-b3fc-2c963f66afa6/feed
+Content-Type: application/json
+
+{
+  "foodType": "Мясо",
+  "amount": 25
+}
+
+### 5. Поиграть с животным (PUT)
+# Замени GUID на реальный ID животного
+PUT {{ZooApi.Web_HostAddress}}/api/Animals/3fa85f64-5717-4562-b3fc-2c963f66afa6/play
+Content-Type: application/json
+
+{
+  "intensity": 5
+}
+
+### 6. Выписать из зоопарка (DELETE)
+# Замени GUID на реальный ID животного
+DELETE {{ZooApi.Web_HostAddress}}/api/Animals/3fa85f64-5717-4562-b3fc-2c963f66afa6
