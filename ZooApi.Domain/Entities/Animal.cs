@@ -2,6 +2,10 @@
 
 public class Animal(string name, string species, Guid ownerId)
 {
+    // Стоимость игры = интенсивность * 2, а максимальная энергия — 100.
+    // Граница держит cost в пределах Energy и исключает переполнение int.
+    public const int MaxIntensity = 50;
+
     public Guid Id { get; init; } = Guid.NewGuid();
 
     public string Name { get; private set; } = !string.IsNullOrWhiteSpace(name)
@@ -29,9 +33,11 @@ public class Animal(string name, string species, Guid ownerId)
 
     public void Play(int intensity)
     {
-        int cost = intensity > 0
-            ? intensity * 2
-            : throw new ArgumentException("Интенсивность должна быть больше 0", nameof(intensity));
+        if (intensity is < 1 or > MaxIntensity)
+            throw new ArgumentOutOfRangeException(nameof(intensity),
+                $"Интенсивность должна быть в диапазоне 1-{MaxIntensity}");
+
+        int cost = intensity * 2;
 
         if (Energy < cost)
             throw new InvalidOperationException("Животное слишком устало для такой активной игры");

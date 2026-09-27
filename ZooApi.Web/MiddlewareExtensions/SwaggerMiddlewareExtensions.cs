@@ -32,4 +32,15 @@ public static class SwaggerMiddlewareExtensions
             });
         });
     }
+
+    // UI рендерит тот же документ, что отдаёт MapOpenApi() на /openapi/v1.json,
+    // поэтому второй генератор документа (AddSwaggerGen) не нужен.
+    public static void UseSwaggerDocumentation(this WebApplication app)
+    {
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/openapi/v1.json", "ZooApi v1");
+            options.DocumentTitle = "Zoo Management API";
+        });
+    }
 }

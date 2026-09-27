@@ -9,7 +9,7 @@ public static class ServiceExtensions
         builder.Services.AddInfrastructure(builder.Configuration);
         builder.Services.AddProblemDetails();
         builder.Services.AddSwaggerDocumentation(); 
-        builder.Services.AddControllers();
+        builder.Services.AddControllers(options => options.Filters.Add<AsyncValidationFilter>());
         builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
     }
 }

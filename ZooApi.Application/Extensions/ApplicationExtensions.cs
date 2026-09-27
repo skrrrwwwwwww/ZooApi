@@ -1,6 +1,4 @@
-﻿using FluentValidation.AspNetCore;
-
-namespace ZooApi.Application.Extensions;
+﻿namespace ZooApi.Application.Extensions;
 
 public static class ApplicationExtensions
 {
@@ -13,8 +11,7 @@ public static class ApplicationExtensions
         
         services.AddAutoMapper(typeof(AnimalProfile).Assembly);
         services.AddValidatorsFromAssembly(typeof(ApplicationExtensions).Assembly);
-        services.AddFluentValidationAutoValidation(); 
-        
+
         return services;
     }
 }

@@ -2,6 +2,7 @@
 global using ZooApi.Application.Extensions;
 global using ZooApi.Infrastructure.Extensions;
 global using ZooApi.Web.ExceptionHandlers;
+global using ZooApi.Web.Filters;
 global using ZooApi.Web.ServiceExtensions;
 global using ZooApi.Web.MiddlewareExtensions;
 global using Microsoft.AspNetCore.Diagnostics;
