@@ -14,6 +14,13 @@
       - RabbitMq__Username=${RABBITMQ_USER:-zoo_user}
       - RabbitMq__Password=${RABBITMQ_PASS:-zoo_pass}
       - ConnectionStrings__Redis=redis:6379
+      # Контейнер работает в Production, а user secrets там не грузятся —
+      # без этих переменных письма падают на 535. Пароль только из .env,
+      # дефолта нет намеренно: лучше явная пустая настройка, чем плейсхолдер.
+      - MailSettings__Host=${MAIL_HOST:-smtp.gmail.com}
+      - MailSettings__Port=${MAIL_PORT:-587}
+      - MailSettings__Username=${MAIL_USERNAME:-shikarevivan2004@gmail.com}
+      - MailSettings__Password=${MAIL_PASSWORD}
     depends_on:
       postgres:
         condition: service_healthy
