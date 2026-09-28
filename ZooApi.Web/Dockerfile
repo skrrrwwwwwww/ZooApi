@@ -1,6 +1,6 @@
-﻿# Рантайм-образ обязан совпадать с TargetFramework проектов (net9.0), а не с SDK в global.json:
-# .NET по умолчанию не перескакивает через мажорную версию, и aspnet:10.0 не запустит net9.0-сборку.
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+﻿# Рантайм-образ обязан совпадать с TargetFramework проектов, иначе .NET не переживёт
+# несовпадение мажорных версий и процесс не стартует.
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080

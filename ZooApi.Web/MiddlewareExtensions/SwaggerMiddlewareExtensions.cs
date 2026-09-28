@@ -23,7 +23,7 @@ public static class SwaggerMiddlewareExtensions
 
 ---
 *По вопросам интеграции обращайтесь в отдел разработки ZooApi.*";
-                document.Info.Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                document.Info.Contact = new Microsoft.OpenApi.OpenApiContact
                 {
                     Name = "Техподдержка Zoo API",
                     Email = "Shikarevivan2004@gmail.com"
