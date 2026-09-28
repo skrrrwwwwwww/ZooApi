@@ -23,8 +23,9 @@ public class AnimalCreatedConsumer(ILogger<AnimalCreatedConsumer> logger,
         if (!string.IsNullOrEmpty(recipientEmail))
         {
             var emailBody = $"<h1>Привет!</h1><p>Животное {message.Name} породы {message.Species} (ID: {message.Id}) добавлено.</p>";
-            await emailService.SendEmailAsync(recipientEmail, "Уведомление: Новое животное создано", emailBody);
-            logger.LogInformation("Уведомление отправлено на {Email}", recipientEmail);
+
+            await NotificationMail.SendAsync(logger, emailService, recipientEmail,
+                "Уведомление: Новое животное создано", emailBody);
         }
         else logger.LogWarning("Не удалось отправить уведомление, адрес получателя не найден в настройках.");
         

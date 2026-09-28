@@ -37,10 +37,13 @@ public class AnimalService(
         // 2. Если всё ок — создаем льва
         var animal = new Animal(dto.Name, dto.Species, dto.OwnerId);
         context.Animals.Add(animal);
-    
-        await context.SaveChangesAsync();
-    
+
+        // Публикуем ДО SaveChanges: при UseBusOutbox именно SaveChanges сбрасывает
+        // накопленные сообщения. Публикация после сохранения оставляет событие
+        // в bus outbox, который уже никто не сбросит, и AnimalCreated теряется.
         await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
+
+        await context.SaveChangesAsync();
         return animal;
     }
 

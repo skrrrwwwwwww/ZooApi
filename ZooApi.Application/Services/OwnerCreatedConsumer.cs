@@ -23,9 +23,9 @@ public class OwnerCreatedConsumer(
         if (!string.IsNullOrEmpty(recipientEmail))
         {
             var emailBody = $"<h1>Новый партнер!</h1><p>Владелец <b>{message.Name}</b> (ID: {message.Id}) добавлен.</p>";
-            
-            await emailService.SendEmailAsync(recipientEmail, "ZooApi: Регистрация владельца", emailBody);
-            logger.LogInformation("Email ушел на {Email}", recipientEmail);
+
+            await NotificationMail.SendAsync(logger, emailService, recipientEmail,
+                "ZooApi: Регистрация владельца", emailBody);
         }
         else logger.LogWarning("Не удалось отправить уведомление, адрес получателя не найден в настройках.");
     }
