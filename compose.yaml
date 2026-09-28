@@ -7,33 +7,42 @@
     ports:
       - "8080:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=${POSTGRES_DB:-zoo_db};Username=${POSTGRES_USER:-zoo_user};Password=${POSTGRES_PASSWORD:-zoo_pass}
       - RabbitMq__Host=rabbitmq
+      # Креды обязаны совпадать с RABBITMQ_DEFAULT_* у сервиса rabbitmq,
+      # иначе MassTransit откатится на guest и не пройдёт авторизацию.
+      - RabbitMq__Username=${RABBITMQ_USER:-zoo_user}
+      - RabbitMq__Password=${RABBITMQ_PASS:-zoo_pass}
       - ConnectionStrings__Redis=redis:6379
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
+      redis:
+        condition: service_healthy
+    # curl ставится в финальный образ — в aspnet-образе его нет, и проверка
+    # молча падала бы с "executable file not found".
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+      test: [ "CMD", "curl", "-fsS", "http://localhost:8080/health" ]
       interval: 15s
       timeout: 10s
-      retries: 3
+      retries: 5
+      start_period: 40s
 
   postgres:
     image: postgres:17
     container_name: zoo_postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-zoo_db}
+      POSTGRES_USER: ${POSTGRES_USER:-zoo_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-zoo_pass}
     ports:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-zoo_user} -d ${POSTGRES_DB:-zoo_db}" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -45,16 +54,20 @@
       - "5672:5672"
       - "15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-zoo_user}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-zoo_pass}
+    # В образе rabbitmq нет ни curl, ни wget — проверять брокер можно только
+    # его собственной утилитой.
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:15672" ]
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "ping" ]
       interval: 10s
-      timeout: 5s
-      retries: 5
+      timeout: 10s
+      retries: 6
+      start_period: 20s
 
   redis:
     image: redis:alpine
+    container_name: zoo_redis
     ports:
       - "6379:6379"
     healthcheck:

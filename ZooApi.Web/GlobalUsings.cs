@@ -1,3 +1,4 @@
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 ﻿global using Microsoft.AspNetCore.Builder;
 global using ZooApi.Application.Extensions;
 global using ZooApi.Infrastructure.Extensions;

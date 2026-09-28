@@ -5,7 +5,7 @@ USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 
-# SDK 10 — чтобы удовлетворить global.json (SDK 10.0.0); он умеет собирать под net9.0.
+# SDK 10 — чтобы удовлетворить global.json (SDK 10.0.0); он же собирает под net10.0.
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
@@ -27,6 +27,12 @@ ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./ZooApi.Web/ZooApi.Web.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false --no-restore
 
 FROM base AS final
+USER root
+# В aspnet-образе нет ни curl, ни wget, а compose healthcheck зовёт curl.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+USER $APP_UID
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ZooApi.Web.dll"]

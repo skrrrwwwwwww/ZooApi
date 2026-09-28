@@ -10,6 +10,7 @@ public static class PipelineExtensions
         app.UseExceptionHandler();
         app.UseCustomLogging();
         app.UseSwaggerDocumentation();
+        app.MapHealthChecks("/health");
         app.MapOpenApi();
         app.MapControllers();
 
