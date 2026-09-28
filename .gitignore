@@ -4,3 +4,20 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .env
+
+# Логи приложения
+Logs/
+
+# Артефакты публикации
+publish/
+
+# Зависимости фронтенда
+node_modules/
+zoo-ui/.next/
+
+# IDE
+.idea/
+*.user
+
+# Бэкапы конфигурации
+*.bak
