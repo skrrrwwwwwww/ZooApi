@@ -12,19 +12,23 @@ WORKDIR /src
 
 # Слой восстановления: копируем только манифесты проектов и Directory.Packages.props,
 # иначе Central Package Management не найдёт версии (NU1015).
-COPY ["Directory.Packages.props", "."]
-COPY ["ZooApi.Domain/ZooApi.Domain.csproj", "ZooApi.Domain/"]
-COPY ["ZooApi.Application/ZooApi.Application.csproj", "ZooApi.Application/"]
-COPY ["ZooApi.Infrastructure/ZooApi.Infrastructure.csproj", "ZooApi.Infrastructure/"]
-COPY ["ZooApi.Web/ZooApi.Web.csproj", "ZooApi.Web/"]
+# ВЕЗДЕ ДОБАВЛЯЕМ "backend/" В ПУТИ ИСТОЧНИКА:
+COPY ["backend/Directory.Packages.props", "."]
+COPY ["backend/ZooApi.Domain/ZooApi.Domain.csproj", "ZooApi.Domain/"]
+COPY ["backend/ZooApi.Application/ZooApi.Application.csproj", "ZooApi.Application/"]
+COPY ["backend/ZooApi.Infrastructure/ZooApi.Infrastructure.csproj", "ZooApi.Infrastructure/"]
+COPY ["backend/ZooApi.Web/ZooApi.Web.csproj", "ZooApi.Web/"]
+
 RUN dotnet restore "ZooApi.Web/ZooApi.Web.csproj"
 
-COPY . .
-RUN dotnet build "./ZooApi.Web/ZooApi.Web.csproj" -c $BUILD_CONFIGURATION -o /app/build --no-restore
+# Копируем оставшиеся исходные коды бэкенда
+COPY backend/ .
+
+RUN dotnet build "ZooApi.Web/ZooApi.Web.csproj" -c $BUILD_CONFIGURATION -o /app/build --no-restore
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ZooApi.Web/ZooApi.Web.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false --no-restore
+RUN dotnet publish "ZooApi.Web/ZooApi.Web.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 USER root

@@ -10,7 +10,7 @@ public class OwnerService(
         var query = context.Owners.AsNoTracking();
 
         var totalCount = await query.CountAsync();
-    
+
         var items = await query
             .Include(o => o.Animals)
             .OrderBy(o => o.Name)
@@ -30,20 +30,21 @@ public class OwnerService(
     public async Task<Owner> CreateAsync(CreateOwnerDto dto)
     {
         var owner = new Owner(dto.Name, dto.ContactInfo);
-        
+
         context.Owners.Add(owner);
-        
+
         await publishEndpoint.Publish(new OwnerCreated(owner.Id, owner.Name));
-        
+
         await context.SaveChangesAsync();
         return owner;
     }
 
     public async Task<Owner?> UpdateAsync(Guid id, OwnerUpdateInfo dto)
     {
-        var owner = await context.Owners.FindAsync(id) 
+        var owner = await context.Owners.FindAsync(id)
                     ?? throw new KeyNotFoundException("Владелец не найден");
-        
+
+        owner.UpdateDetails(dto.Name, dto.ContactInfo);
         await context.SaveChangesAsync();
         return owner;
     }
@@ -54,7 +55,7 @@ public class OwnerService(
             .Where(o => o.Id == id)
             .ExecuteDeleteAsync();
 
-        if (deletedRows == 0) 
+        if (deletedRows == 0)
             throw new KeyNotFoundException("Владелец не найден");
     }
 }

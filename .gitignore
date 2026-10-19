@@ -4,6 +4,7 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .env
+backend/ZooApi.Web/.env
 
 # Логи приложения
 Logs/

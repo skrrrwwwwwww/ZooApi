@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_NAME: 'zooapi-api'
-  DOCKERFILE_PATH: 'ZooApi.Web/Dockerfile'
+  DOCKERFILE_PATH: 'backend/ZooApi.Web/Dockerfile'
 
 jobs:
   build-and-test:
@@ -19,16 +19,16 @@ jobs:
       - name: Setup .NET via global.json
         uses: actions/setup-dotnet@v4
         with:
-          global-json-file: global.json
+          global-json-file: backend/global.json
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore backend/ZooApi.slnx
 
       - name: Build project
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build backend/ZooApi.slnx --no-restore --configuration Release
 
       - name: Run Tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test backend/ZooApi.slnx --no-build --verbosity normal
 
       - name: Build Docker Image
         run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} -t ${{ env.IMAGE_NAME }}:latest -f ${{ env.DOCKERFILE_PATH }} .

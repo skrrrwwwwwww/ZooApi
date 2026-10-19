@@ -1,63 +1,65 @@
-# 🐾 Zoo Management API
+# Zoo Management API
 
-> **Enterprise-grade approach to a simple domain.**  
-> A robust RESTful API for managing zoo inhabitants and their owners, built with a focus on high-quality architecture and clean code.
+REST API for managing zoo animals and their owners.
 
----
+## Architecture
 
-## 🏗️ Architecture & Engineering
+The .NET 10 solution is split into four projects:
 
-Despite having only two core entities (**Animal** and **Owner**), the project is built using a professional layered architecture comprising **50+ classes**. This ensures strict separation of concerns, high testability, and scalability.
+- `ZooApi.Domain` — entities and domain behavior.
+- `ZooApi.Application` — DTOs, validation, services, and message consumers.
+- `ZooApi.Infrastructure` — PostgreSQL persistence, EF Core migrations, RabbitMQ/MassTransit, Redis, and logging.
+- `ZooApi.Web` — ASP.NET Core API, controllers, exception handling, and OpenAPI/Swagger UI.
 
-### Project Structure:
-*   **Domain**: Core business logic, entities, and state management (Satiety, Happiness).
-*   **Application**: Interfaces, DTOs, AutoMapper profiles, and Service implementations.
-*   **Infrastructure**: Data persistence and external integrations.
-*   **Web API**: Controllers, custom Middleware extensions, and OpenApi configurations.
+The Vue 3 frontend in `frontend/` is currently a starter template and is not yet connected to the API.
 
-<!-- Uncomment the line below if you add your dependency graph image to the repo -->
-<!-- ![Dependency Graph](./path-to-your-graph-image.png) -->
+## Features
 
----
+- Create, list, retrieve, update, and delete owners.
+- Create, list, retrieve, and delete animals; feed and play with an animal to update its energy and activity intensity.
+- Paginated owner and animal lists.
+- Publish owner/animal creation events through the MassTransit EF outbox. Consumers cache event data in Redis and send email notifications.
+- PostgreSQL migrations are applied at API startup.
 
-## 🚀 Key Features
+## Stack
 
-### 🦁 Animals Module
-*   **Lifecycle Management**: Register new inhabitants, view detailed cards, and handle check-outs.
-*   **Interactive Statuses**:
-    *   `PUT /feed`: Logic-based feeding system (increases satiety).
-    *   `PUT /play`: Activity system (boosts happiness, consumes energy).
-*   **Performance**: Built-in pagination for large datasets.
+.NET 10 / C# 14, ASP.NET Core, EF Core with PostgreSQL, MassTransit with RabbitMQ, Redis, FluentValidation, AutoMapper, and MailKit.
 
-### 👤 Owners Module
-*   Complete CRUD for sponsors and animal guardians.
-*   **Relational Integrity**: Automated mapping of animals to their respective owners.
+## Run with Docker Compose
 
----
+1. Copy the environment template and set `MAIL_USERNAME` and `MAIL_PASSWORD` to valid SMTP credentials if email notifications are needed:
 
-## 🛠️ Technology Stack
-
-  **Framework**: `.NET 10` (C# 14)
-*   **ORM**: `Entity Framework Core` (Npgsql)
-*   **Messaging**: `MassTransit` & `RabbitMQ`
-*   **Caching**: `StackExchange.Redis`
-*   **Monitoring**: `Health Checks` for RabbitMQ and System status.
-
-### Application Logic
-*   **Mapping**: `AutoMapper` (with DI integration).
-*   **Validation**: `FluentValidation` for strict request handling.
-*   **Communication**: `MailKit` & `MimeKit` for SMTP/Email services.
-
-### API & Documentation
-*   **OpenAPI/Swagger**: `Swashbuckle.AspNetCore` with custom `Annotations` and `EndpointDescriptions`.
-*   **Routing**: Custom `MiddlewareExtensions` for a clean `Program.cs`.
-
----
-
-## 📖 Getting Started
-
-1. **Clone & Run**:
    ```bash
-   git clone https://github.com
-   cd ZooApi
-   dotnet run --project ZooApi.Web
+   cp backend/ZooApi.Web/.env.example backend/ZooApi.Web/.env
+   ```
+
+2. Start the API and its dependencies:
+
+   ```bash
+   docker compose --env-file backend/ZooApi.Web/.env up --build
+   ```
+
+The API is available at `http://localhost:8080`. Health check: `/health`; OpenAPI JSON: `/openapi/v1.json`; Swagger UI: `/swagger`.
+
+The local `.env` file is ignored by Git. Do not commit real credentials.
+
+## Run the API locally
+
+Start PostgreSQL, RabbitMQ, and Redis, then run:
+
+```bash
+dotnet run --project backend/ZooApi.Web/ZooApi.Web.csproj
+```
+
+The default development connection settings are in `backend/ZooApi.Web/appsettings.Development.json`.
+
+## API routes
+
+Routes use the `api` prefix:
+
+- `GET /api/Animals` and `GET /api/Owners` — paginated lists (`pageNumber`, `pageSize`).
+- `GET` and `DELETE /api/Animals/{id}`; `POST /api/Animals` — retrieve, delete, and create an animal.
+- `PUT /api/Animals/{id}/feed` and `PUT /api/Animals/{id}/play` — change an animal's state.
+- `GET`, `PUT`, and `DELETE /api/Owners/{id}`; `POST /api/Owners` — retrieve, update, delete, and create an owner.
+
+Run `dotnet build backend/ZooApi.slnx --configuration Release` to build the backend solution.
