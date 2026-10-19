@@ -3,9 +3,11 @@
     image: zooapi.web
     build:
       context: .
-      dockerfile: ZooApi.Web/Dockerfile
+      dockerfile: backend/ZooApi.Web/Dockerfile
     ports:
       - "8080:8080"
+    env_file:
+      - ./backend/ZooApi.Web/.env
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=${POSTGRES_DB:-zoo_db};Username=${POSTGRES_USER:-zoo_user};Password=${POSTGRES_PASSWORD:-zoo_pass}
       - RabbitMq__Host=rabbitmq
