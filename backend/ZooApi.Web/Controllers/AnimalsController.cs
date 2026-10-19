@@ -3,9 +3,10 @@
 namespace ZooApi.Web.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 [SwaggerTag("Управление обитателями зоопарка")]
-public class AnimalsController(IAnimalService service, IMapper mapper) : ControllerBase
+public class AnimalsController(IAnimalService service) : ControllerBase
 {
     [HttpGet]
     [EndpointSummary("Список всех обитателей 📋")]
@@ -17,9 +18,9 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
         if (pageSize > 100) pageSize = 100;
 
         var result = await service.GetAllAsync(pageNumber, pageSize);
-    
-        var dtoItems = mapper.Map<List<AnimalDto>>(result.Items);
-    
+
+        var dtoItems = result.Items.Select(animal => animal.ToDto()).ToList();
+
         return Ok(new PagedResult<AnimalDto>(dtoItems, result.TotalCount, result.PageNumber, result.PageSize));
     }
 
@@ -28,10 +29,11 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     [EndpointDescription("Получение детальной информации. Нужно передать валидный **GUID**.")]
     [ProducesResponseType(typeof(AnimalDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetById(Guid id)
     {
         var animal = await service.GetByIdAsync(id);
-        return animal is not null ? Ok(mapper.Map<AnimalDto>(animal)) : NotFound();
+        return animal is not null ? Ok(animal.ToDto()) : NotFound();
     }
 
     [HttpPost]
@@ -41,8 +43,7 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     public async Task<IActionResult> Create([FromBody] CreateAnimalDto dto)
     {
         var entity = await service.CreateAsync(dto);
-        // ВОТ ТУТ: обязательно мапим в DTO, чтобы разорвать связь с Owner
-        var resultDto = mapper.Map<AnimalDto>(entity); 
+        var resultDto = entity.ToDto();
         return CreatedAtAction(nameof(GetById), new { id = resultDto.Id }, resultDto);
     }
 
@@ -51,20 +52,23 @@ public class AnimalsController(IAnimalService service, IMapper mapper) : Control
     [EndpointDescription("Увеличивает уровень сытости. **Внимание:** Перекорм ведет к спячке!")]
     [ProducesResponseType(typeof(AnimalDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Feed(Guid id, [FromBody] FeedDto dto)
     {
         var updated = await service.FeedAsync(id, dto);
-        return updated is not null ? Ok(mapper.Map<AnimalDto>(updated)) : NotFound();
+        return updated is not null ? Ok(updated.ToDto()) : NotFound();
     }
 
     [HttpPut("{id:guid}/play")]
     [EndpointSummary("Поиграть с животным 🎾")]
     [EndpointDescription("Повышает счастье, снижает энергию. Параметр **Intensity** влияет на усталость.")]
     [ProducesResponseType(typeof(AnimalDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
     public async Task<IActionResult> Play(Guid id, [FromBody] PlayDto dto)
     {
         var updated = await service.PlayAsync(id, dto.Intensity);
-        return Ok(mapper.Map<AnimalDto>(updated));
+        return Ok(updated.ToDto());
     }
 
     [HttpDelete("{id:guid}")]

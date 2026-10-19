@@ -5,23 +5,25 @@
       context: .
       dockerfile: backend/ZooApi.Web/Dockerfile
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     env_file:
       - ./backend/ZooApi.Web/.env
     environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=${POSTGRES_DB:-zoo_db};Username=${POSTGRES_USER:-zoo_user};Password=${POSTGRES_PASSWORD:-zoo_pass}
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=${POSTGRES_DB:?Set POSTGRES_DB};Username=${POSTGRES_USER:?Set POSTGRES_USER};Password=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
       - RabbitMq__Host=rabbitmq
       # Креды обязаны совпадать с RABBITMQ_DEFAULT_* у сервиса rabbitmq,
       # иначе MassTransit откатится на guest и не пройдёт авторизацию.
-      - RabbitMq__Username=${RABBITMQ_USER:-zoo_user}
-      - RabbitMq__Password=${RABBITMQ_PASS:-zoo_pass}
+      - RabbitMq__Username=${RABBITMQ_USER:?Set RABBITMQ_USER}
+      - RabbitMq__Password=${RABBITMQ_PASS:?Set RABBITMQ_PASS}
       - ConnectionStrings__Redis=redis:6379
+      - Authentication__Authority=${JWT_AUTHORITY:?Set JWT_AUTHORITY to the external JWT issuer URL}
+      - Authentication__Audience=${JWT_AUDIENCE:?Set JWT_AUDIENCE}
       # Контейнер работает в Production, а user secrets там не грузятся —
       # без этих переменных письма падают на 535. Пароль только из .env,
       # дефолта нет намеренно: лучше явная пустая настройка, чем плейсхолдер.
       - MailSettings__Host=${MAIL_HOST:-smtp.gmail.com}
       - MailSettings__Port=${MAIL_PORT:-587}
-      - MailSettings__Username=${MAIL_USERNAME:-shikarevivan2004@gmail.com}
+      - MailSettings__Username=${MAIL_USERNAME:-}
       - MailSettings__Password=${MAIL_PASSWORD}
     depends_on:
       postgres:
@@ -43,15 +45,15 @@
     image: postgres:17
     container_name: zoo_postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-zoo_db}
-      POSTGRES_USER: ${POSTGRES_USER:-zoo_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-zoo_pass}
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
     ports:
-      - "5433:5432"
+      - "127.0.0.1:5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-zoo_user} -d ${POSTGRES_DB:-zoo_db}" ]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:?Set POSTGRES_USER} -d ${POSTGRES_DB:?Set POSTGRES_DB}" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -60,11 +62,11 @@
     image: rabbitmq:4.0-management
     container_name: zoo_rabbit
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-zoo_user}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-zoo_pass}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:?Set RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:?Set RABBITMQ_PASS}
     # В образе rabbitmq нет ни curl, ни wget — проверять брокер можно только
     # его собственной утилитой.
     healthcheck:
@@ -78,7 +80,7 @@
     image: redis:alpine
     container_name: zoo_redis
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
       interval: 5s

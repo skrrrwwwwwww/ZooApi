@@ -1,4 +1,3 @@
-﻿global using AutoMapper;
 global using ZooApi.Application.DTOs;
 global using ZooApi.Domain.Entities;
 global using MassTransit;
@@ -15,5 +14,5 @@ global using MailKit.Net.Smtp;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Caching.Distributed;
 global using Microsoft.Extensions.DependencyInjection;
-global using ZooApi.Application.Profiles;
 global using ZooApi.Application.Services;
+global using ZooApi.Application.Mappers;

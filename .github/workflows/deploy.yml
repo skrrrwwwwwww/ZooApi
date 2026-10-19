@@ -22,13 +22,13 @@ jobs:
           global-json-file: backend/global.json
 
       - name: Restore dependencies
-        run: dotnet restore backend/ZooApi.slnx
+        run: dotnet restore ZooApi.slnx
 
       - name: Build project
-        run: dotnet build backend/ZooApi.slnx --no-restore --configuration Release
+        run: dotnet build ZooApi.slnx --no-restore --configuration Release
 
       - name: Run Tests
-        run: dotnet test backend/ZooApi.slnx --no-build --verbosity normal
+        run: dotnet test ZooApi.slnx --no-build --verbosity normal
 
       - name: Build Docker Image
         run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} -t ${{ env.IMAGE_NAME }}:latest -f ${{ env.DOCKERFILE_PATH }} .

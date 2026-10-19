@@ -3,9 +3,10 @@
 namespace ZooApi.Web.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 [SwaggerTag("Управление владельцами животных")]
-public class OwnersController(IOwnerService service, IMapper mapper) : ControllerBase
+public class OwnersController(IOwnerService service) : ControllerBase
 {
     [HttpGet]
     [EndpointSummary("Список владельцев с пагинацией 📋")]
@@ -16,10 +17,10 @@ public class OwnersController(IOwnerService service, IMapper mapper) : Controlle
         if (pageSize > 100) pageSize = 100; // Ограничиваем сверху для безопасности
 
         var result = await service.GetAllAsync(pageNumber, pageSize);
-    
+
         // Мапим Items внутри PagedResult
-        var dtoItems = mapper.Map<List<OwnerDto>>(result.Items);
-    
+        var dtoItems = result.Items.Select(owner => owner.ToDto()).ToList();
+
         return Ok(new PagedResult<OwnerDto>(dtoItems, result.TotalCount, result.PageNumber, result.PageSize));
     }
 
@@ -31,7 +32,7 @@ public class OwnersController(IOwnerService service, IMapper mapper) : Controlle
     public async Task<IActionResult> GetById(Guid id)
     {
         var owner = await service.GetByIdAsync(id);
-        return owner is not null ? Ok(mapper.Map<OwnerDto>(owner)) : NotFound();
+        return owner is not null ? Ok(owner.ToDto()) : NotFound();
     }
 
     [HttpPost]
@@ -41,7 +42,7 @@ public class OwnersController(IOwnerService service, IMapper mapper) : Controlle
     public async Task<IActionResult> Create([FromBody] CreateOwnerDto dto)
     {
         var entity = await service.CreateAsync(dto);
-        var resultDto = mapper.Map<OwnerDto>(entity);
+        var resultDto = entity.ToDto();
         return CreatedAtAction(nameof(GetById), new { id = resultDto.Id }, resultDto);
     }
 
@@ -53,7 +54,7 @@ public class OwnersController(IOwnerService service, IMapper mapper) : Controlle
     public async Task<IActionResult> Update(Guid id, [FromBody] OwnerUpdateInfo dto)
     {
         var updated = await service.UpdateAsync(id, dto);
-        return updated is not null ? Ok(mapper.Map<OwnerDto>(updated)) : NotFound();
+        return updated is not null ? Ok(updated.ToDto()) : NotFound();
     }
 
     [HttpDelete("{id:guid}")]

@@ -18,10 +18,18 @@ public static class MessagingExtensions
             x.UsingRabbitMq((context, cfg) =>
             {
                 var rabbitSettings = configuration.GetSection("RabbitMq");
+                var username = rabbitSettings["Username"];
+                var password = rabbitSettings["Password"];
+                if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+                {
+                    throw new InvalidOperationException(
+                        "RabbitMq:Username and RabbitMq:Password must be configured.");
+                }
+
                 cfg.Host(rabbitSettings["Host"] ?? "localhost", h =>
                 {
-                    h.Username(rabbitSettings["Username"] ?? "guest");
-                    h.Password(rabbitSettings["Password"] ?? "guest");
+                    h.Username(username);
+                    h.Password(password);
                 });
                 cfg.UseMessageRetry(r => r.Interval(3, TimeSpan.FromSeconds(5)));
                 cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter("ZooApi", false));

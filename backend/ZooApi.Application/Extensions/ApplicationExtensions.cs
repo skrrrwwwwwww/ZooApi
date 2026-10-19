@@ -8,8 +8,7 @@ public static class ApplicationExtensions
         services.AddScoped<IOwnerService, OwnerService>();
         services.AddScoped<IRedisCacheService, RedisCacheService>();
         services.AddScoped<IEmailService, EmailService>();
-        
-        services.AddAutoMapper(typeof(AnimalProfile).Assembly);
+
         services.AddValidatorsFromAssembly(typeof(ApplicationExtensions).Assembly);
 
         return services;

@@ -1,8 +1,13 @@
 ﻿namespace ZooApi.Infrastructure.Extensions;
 
+using Microsoft.Extensions.Hosting;
+
 public static class PersistenceExtensions
 {
-    public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddPersistence(
+        this IServiceCollection services,
+        IConfiguration configuration,
+        IHostEnvironment environment)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
@@ -11,10 +16,10 @@ public static class PersistenceExtensions
             throw new InvalidOperationException("Строка подключения 'DefaultConnection' не найдена в конфигурации!");
         }
 
-        services.AddDbContext<ZooDbContext>(options 
+        services.AddDbContext<ZooDbContext>(options
             => options.UseNpgsql(connectionString)
                 .EnableDetailedErrors()
-                .EnableSensitiveDataLogging());
+                .EnableSensitiveDataLogging(environment.IsDevelopment()));
 
         services.AddScoped<IZooDbContext>(provider => provider.GetRequiredService<ZooDbContext>());
 

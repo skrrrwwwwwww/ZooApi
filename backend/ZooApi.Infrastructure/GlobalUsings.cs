@@ -1,5 +1,4 @@
 ﻿global using MassTransit;
-global using ZooApi.Domain.Entities;
 global using ZooApi.Infrastructure.Configurations;
 global using ZooApi.Application.Interfaces;
 global using ZooApi.Domain.Entities;
@@ -11,6 +10,7 @@ global using Microsoft.EntityFrameworkCore.Infrastructure;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
 global using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 global using Serilog;
-global using ZooApi.Application.Services; 
+global using ZooApi.Application.Services;

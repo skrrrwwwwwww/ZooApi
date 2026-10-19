@@ -1,5 +1,7 @@
 ﻿namespace ZooApi.Web.MiddlewareExtensions;
 
+using Microsoft.OpenApi;
+
 public static class SwaggerMiddlewareExtensions
 {
     public static void AddSwaggerDocumentation(this IServiceCollection services)
@@ -25,9 +27,39 @@ public static class SwaggerMiddlewareExtensions
 *По вопросам интеграции обращайтесь в отдел разработки ZooApi.*";
                 document.Info.Contact = new Microsoft.OpenApi.OpenApiContact
                 {
-                    Name = "Техподдержка Zoo API",
-                    Email = "Shikarevivan2004@gmail.com"
+                    Name = "Zoo API Support"
                 };
+
+                var components = document.Components ??= new OpenApiComponents();
+                components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
+                components.SecuritySchemes["Bearer"] = new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT"
+                };
+
+                if (document.Paths is not { } paths)
+                    return Task.CompletedTask;
+
+                foreach (var (path, pathItem) in paths)
+                {
+                    if (path == "/health")
+                        continue;
+
+                    if (pathItem.Operations is null)
+                        continue;
+
+                    foreach (var operation in pathItem.Operations.Values)
+                    {
+                        operation.Security ??= [];
+                        operation.Security.Add(new OpenApiSecurityRequirement
+                        {
+                            [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+                        });
+                    }
+                }
+
                 return Task.CompletedTask;
             });
         });

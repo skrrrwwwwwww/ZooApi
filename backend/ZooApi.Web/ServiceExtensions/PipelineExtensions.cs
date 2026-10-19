@@ -13,8 +13,11 @@ public static class PipelineExtensions
         if (!app.Environment.IsDevelopment())
             app.UseHttpsRedirection();
 
+        app.UseAuthentication();
+        app.UseAuthorization();
+
         app.UseSwaggerDocumentation();
-        app.MapHealthChecks("/health");
+        app.MapHealthChecks("/health").AllowAnonymous();
         app.MapOpenApi();
 
         app.MapControllers();

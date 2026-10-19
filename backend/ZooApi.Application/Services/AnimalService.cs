@@ -22,12 +22,15 @@ public class AnimalService(
     }
 
     public async Task<Animal?> GetByIdAsync(Guid id) =>
-        await context.Animals.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
+        await context.Animals
+            .Include(a => a.Owner)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(a => a.Id == id);
 
     public async Task<Animal> CreateAsync(CreateAnimalDto dto)
     {
         var ownerExists = await context.Owners.AnyAsync(o => o.Id == dto.OwnerId);
-    
+
         if (!ownerExists)
         {
             // Выкидываем исключение, которое потом можно перехватить
@@ -44,7 +47,9 @@ public class AnimalService(
         await publishEndpoint.Publish(new AnimalCreated(animal.Id, animal.Name, animal.Species));
 
         await context.SaveChangesAsync();
-        return animal;
+        return await context.Animals
+            .Include(a => a.Owner)
+            .SingleAsync(a => a.Id == animal.Id);
     }
 
     public async Task<Animal> PlayAsync(Guid id, int intensity)

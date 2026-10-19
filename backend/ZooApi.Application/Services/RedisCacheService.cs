@@ -1,29 +1,32 @@
 ﻿namespace ZooApi.Application.Services;
 
-public class RedisCacheService(IDistributedCache? cache) : IRedisCacheService
+public class RedisCacheService(IDistributedCache cache) : IRedisCacheService
 {
-    private readonly JsonSerializerOptions _jsonOptions = new() 
-                        { PropertyNameCaseInsensitive = true };
-    
+    private readonly JsonSerializerOptions _jsonOptions = new()
+    { PropertyNameCaseInsensitive = true };
+
     public async Task<T?> GetAsync<T>(string key, CancellationToken ct = default)
     {
-        var value = await cache?.GetStringAsync(key, ct);
-        
+        var value = await cache.GetStringAsync(key, ct);
+
         return string.IsNullOrEmpty(value) ? default : JsonSerializer.Deserialize<T>(value, _jsonOptions);
     }
 
-    public async Task SetAsync<T>(string key, 
-                                  T value, 
-                                  TimeSpan? expiration = null, 
+    public async Task SetAsync<T>(string key,
+                                  T value,
+                                  TimeSpan? expiration = null,
                                   CancellationToken ct = default)
     {
-        var options = new DistributedCacheEntryOptions() { AbsoluteExpirationRelativeToNow = expiration 
-                                                                           ?? TimeSpan.FromMinutes(5) };
+        var options = new DistributedCacheEntryOptions()
+        {
+            AbsoluteExpirationRelativeToNow = expiration
+                                                                           ?? TimeSpan.FromMinutes(5)
+        };
         var jsonData = JsonSerializer.Serialize(value, _jsonOptions);
-        await cache.SetStringAsync(key, jsonData, options, ct); 
+        await cache.SetStringAsync(key, jsonData, options, ct);
     }
 
-    public async Task RemoveAsync(string key, 
-                                  CancellationToken ct = default) => 
+    public async Task RemoveAsync(string key,
+                                  CancellationToken ct = default) =>
         await cache.RemoveAsync(key, ct);
 }

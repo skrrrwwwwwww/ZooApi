@@ -4,9 +4,9 @@ public class Owner
 {
     public Guid Id { get; init; }
 
-    public string Name { get; private set; }
+    public string Name { get; private set; } = string.Empty;
 
-    public string ContactInfo { get; private set; }
+    public string ContactInfo { get; private set; } = string.Empty;
 
     private readonly List<Animal> _animals = new();
     public IReadOnlyCollection<Animal> Animals => _animals.AsReadOnly();

@@ -11,9 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" />
-      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" />
-      <PackageReference Include="FluentValidation.AspNetCore" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
       <PackageReference Include="MailKit" />
       <PackageReference Include="MassTransit.RabbitMQ" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" />

@@ -1,4 +1,6 @@
-﻿namespace ZooApi.Domain.Entities;
+using ZooApi.Domain.Exceptions;
+
+namespace ZooApi.Domain.Entities;
 
 public class Animal(string name, string species, Guid ownerId)
 {
@@ -40,7 +42,7 @@ public class Animal(string name, string species, Guid ownerId)
         int cost = intensity * 2;
 
         if (Energy < cost)
-            throw new InvalidOperationException("Животное слишком устало для такой активной игры");
+            throw new AnimalTooTiredException();
 
         Energy -= cost;
 
