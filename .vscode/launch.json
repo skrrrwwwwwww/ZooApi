@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/ZooApi.Web/bin/Debug/net9.0/ZooApi.Web.dll",
+      "program": "${workspaceFolder}/backend/ZooApi.Web/bin/Debug/net9.0/ZooApi.Web.dll",,
       "args": [],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,

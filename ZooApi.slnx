@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/ZooApi.Application/ZooApi.Application.csproj" />
+    <Project Path="backend/ZooApi.Domain/ZooApi.Domain.csproj" />
+    <Project Path="backend/ZooApi.Infrastructure/ZooApi.Infrastructure.csproj" />
+    <Project Path="backend/ZooApi.Web/ZooApi.Web.csproj" />
+  </Folder>
+</Solution>

@@ -2,8 +2,8 @@
 
 # Основные команды для запуска
 run:
-	docker-compose up -d
-	dotnet run --project ZooApi.Web/ZooApi.Web.csproj
+	docker compose up -d
+	dotnet run --project backend/ZooApi.Web/ZooApi.Web.csproj
 
 stop:
 	docker-compose down
