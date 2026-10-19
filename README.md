@@ -1,9 +1,5 @@
 # 🐾 Zoo Management API
 
-![.NET 9](https://shields.io)
-![Architecture](https://shields.io)
-![OpenApi](https://shields.io)
-
 > **Enterprise-grade approach to a simple domain.**  
 > A robust RESTful API for managing zoo inhabitants and their owners, built with a focus on high-quality architecture and clean code.
 
